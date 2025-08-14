@@ -30,7 +30,7 @@
 
 ### **\[ 시나리오 전체적인 흐름 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
 
 | **AWS Service** | **Service Purpose**                                                                                                            | **Workbook Usage**                                                                                                       |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |

@@ -2,7 +2,7 @@
 
 * [S3 퍼블릭 버킷 생성 탐지 및 알람](README.md)
 * [루트 계정 로그인 알림](../../../undefined.md)
-* [AWS Cloudtrail 비활성화 탐지](aws-cloudtrail/README.md)
+* [AWS Cloudtrail 비활성화 탐지](../../../aws-cloudtrail.md)
   * [Terraform](aws-cloudtrail/terraform.md)
 * [Security group의 정책 변경 탐지](../../../security-group.md)
 * [새로운 IAM User의 생성, 삭제 탐지](../../../iam-user.md)
