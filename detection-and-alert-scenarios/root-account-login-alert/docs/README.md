@@ -48,7 +48,7 @@
 
 #### \[ 시나리오 전체적인 흐름 ]
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 <table data-header-hidden><thead><tr><th width="155"></th><th></th><th></th></tr></thead><tbody><tr><td><strong>AWS Service</strong></td><td><strong>Service Purpose</strong></td><td><strong>Workbook Usage</strong></td></tr><tr><td>S3</td><td>Simple Storage Service의 약자로 확장성, 데이터 가용성, 보안 및 성능을 제공하는 객체 스토리지 서비스 입니다.S3를 활용하여 객체(object) 스토리지 서비스로 이밎, 로그, 백업 등 비정형데이터를 저장할 수 있으며, 정적 웹 호스팅, 버전 관리, 수명 주기 관리등의 기능을 활용할 수 있습니다.</td><td>S3를 생성하고 퍼블릭 상태로 정책을 변경하는 대상으로 사용되며, 필요시 조치를 진행합니다.</td></tr><tr><td>Config</td><td>AWS 리소스의 변경/설정 이력을 기록하고 평가하는 AWS 관리형 서비스 입니다.사전 정의 규칙이나 사용자 정의 규칙을 이용하여 변경 발생 시점에 대한 상세한 감사 로그를 제공합니다.</td><td>S3의 퍼블릭 접근 정책이 설정되면 AWS Config을 사용하여 변경 이력을 탐지합니다.s3-bucket-public-read-prohibited와 같은 사전 정의 규칙이나 사용자 정의 규칙을 이용하여 비준수(Non-compliant) 상태를 검토합니다.</td></tr><tr><td>EventBridge</td><td>AWS 서비스 및 애플리케이션에서 사용자가 정의한 이벤트가 발생하는 경우 다양한 대상 서비스(Lambda, SNS 등)로 전달하는 서비스 입니다.복잡한 이벤트 버스를 구현하거나 스케쥴링 기능으로도 활용할 수 있습니다.</td><td>Config에서 설정한 규칙의 비준수(Non-compliant)상태를 확인하는 경우 이 내용을 SNS와 Lambda로 전달합니다.</td></tr><tr><td>SNS</td><td>발행-구독 기반의 메시징 서비스 입니다.이벤트를 HTTP, HTTPS, Email, SMS, Lambda, SQS 등 다양한 엔드포인트로 전달할 수 있습니다.</td><td>Eventbridge로 부터 수신한 이벤트 이력을 확인하고 SNS 주제를 구독하고 있는 이메일로 이벤트 이력을 전송합니다.</td></tr><tr><td>Lambda</td><td>서버를 프로비저닝하거나 관리할 필요 없이 코드를 실행할 수 있는 서버리스 컴퓨팅 서비스입니다.다양한 이벤트 소스(S3, Eventbridge, SNS 등)와 연동하여 이벤트에 대한 응답으로 코드를 실행할 수 있습니다.</td><td>Eventbridge로 부터 수신한 이벤트 이력을 확인하여 외부 메신저로 전송하기 위한 데이터 포멧을 정의합니다.전달에 필요한 메시지를 검토하고 사전 지정한 외부 Webhook(Slack, Discord 등)으로 전달합니다.또한 S3의 퍼블릭 접근 정책을 비활성화 하기 위해 “pub-bucket-policy” 혹은 “<code>put-bucket-policy</code> 혹은 <code>put-public-access-block</code> API 를 활용해 정책을 변경합니다.</td></tr></tbody></table>
 
@@ -82,7 +82,7 @@
 
 **STEP 1) Config 검색**
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 S3 퍼블릭 설정을 탐지하는 규칙을 생성하기 위해 Config로 이동한다.
 
@@ -90,15 +90,15 @@ S3 퍼블릭 설정을 탐지하는 규칙을 생성하기 위해 Config로 이�
 
 **\[Configuration Recoder 설정 확인]**
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 고객 관리형 레코드의 경우, Config 규칙은 고객이 직접 설정한 레코더를 전제로 작동하기 때문에 고객 관리형 레코드 기록이 활성화되어 있어야 한다.
 
 \</aside>
 
-<div align="left"><figure><img src=".gitbook/assets/image (3).png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (3).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
-<div align="left"><figure><img src=".gitbook/assets/image (4).png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (4).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 만일 레코드가 설정되어 있지 않다면 위와 같이 설정하면 된다.
 
