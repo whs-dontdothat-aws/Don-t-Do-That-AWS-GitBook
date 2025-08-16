@@ -1,3 +1,3 @@
 # Table of contents
 
-* [root-account-login](README.md)
+* [root-login](README.md)
