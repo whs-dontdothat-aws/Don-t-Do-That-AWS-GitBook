@@ -6,25 +6,25 @@
 
 **\[ 목차 ]**
 
-[#undefined](ami.md#undefined "mention")
+[#undefined](./#undefined "mention")
 
-[#undefined-1](ami.md#undefined-1 "mention")
+[#undefined-1](./#undefined-1 "mention")
 
-[#undefined-2](ami.md#undefined-2 "mention")
+[#undefined-2](./#undefined-2 "mention")
 
-[#undefined-3](ami.md#undefined-3 "mention")
+[#undefined-3](./#undefined-3 "mention")
 
-[#undefined-4](ami.md#undefined-4 "mention")
+[#undefined-4](./#undefined-4 "mention")
 
-[#id-1.-cloudtrail](ami.md#id-1.-cloudtrail "mention")
+[#id-1.-cloudtrail](./#id-1.-cloudtrail "mention")
 
-[#id-2.-lambda-discord](ami.md#id-2.-lambda-discord "mention")
+[#id-2.-lambda-discord](./#id-2.-lambda-discord "mention")
 
-[#id-3.-sns](ami.md#id-3.-sns "mention")
+[#id-3.-sns](./#id-3.-sns "mention")
 
-[#id-4.-eventbridge](ami.md#id-4.-eventbridge "mention")
+[#id-4.-eventbridge](./#id-4.-eventbridge "mention")
 
-[#id-5](ami.md#id-5 "mention")
+[#id-5](./#id-5 "mention")
 
 ***
 
@@ -59,7 +59,7 @@
 
 ### \[ 시나리오 전체적인 흐름 ]
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/KakaoTalk_20250723_201226480.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/KakaoTalk_20250723_201226480.jpg" alt=""><figcaption></figcaption></figure>
 
 | **AWS Service** | **Service Purpose**                                                                                                                                                  | **Workbook Usage**                                                                                                 |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -98,19 +98,19 @@
 
 **STEP 1) CloudTrail 검색**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 AWS 계정 내에서 발생하는 API 호출 및 활동 내역을 자동으로 기록하고 추적하기 위해 **CloudTrail서비스**로 이동한다.
 
 **STEP 2) CloudTrail 생성**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 1.png" alt=""><figcaption></figcaption></figure>
 
 **Create trail** 버튼을 클릭해 사용할 추적을 생성한다.
 
 **\[ 추적 속성 선택 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 2.png" alt=""><figcaption></figcaption></figure>
 
 CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 클릭한다.
 
@@ -124,7 +124,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 로그 이벤트 선택 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 3.png" alt=""><figcaption></figcaption></figure>
 
 로그 이벤트, 이벤트 관리 옵션 선택 후 **Next**버튼을 클릭한다.
 
@@ -133,13 +133,13 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[** **검토 및 생성 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 4.png" alt=""><figcaption></figcaption></figure>
 
 각 단계 검토 후 **Create trail** 버튼을 클릭하면 추적이 생성된다.
 
 **STEP 3) 추적 생성 확인**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 5.png" alt=""><figcaption></figcaption></figure>
 
 대시보드에서 정상적으로 추적이 생성되었는지 확인한다.
 
@@ -153,7 +153,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 채널 만들기 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/스크린샷_2025-07-23_155306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/스크린샷_2025-07-23_155306.png" alt=""><figcaption></figcaption></figure>
 
 이벤트에 관한 알림을 수신 할 채널을 만들어준다.
 
@@ -161,19 +161,19 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 채널 편집 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/스크린샷_2025-07-23_155401.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/스크린샷_2025-07-23_155401.png" alt=""><figcaption></figcaption></figure>
 
 위와 같이 생성된 채널에서 **채널 편집**을 클릭한다.
 
 **\[ 웹후크 연동 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 6.png" alt=""><figcaption></figcaption></figure>
 
 왼쪽 상단의 설정 목록에서 **연동 → 웹후크 만들기**를 클릭하여 웹후크 봇을 만들어 준다.
 
 **\[ 웹후크 URL 복사 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/스크린샷_2025-07-23_155452.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/스크린샷_2025-07-23_155452.png" alt=""><figcaption></figcaption></figure>
 
 **웹후크 URL 복사** 버튼을 클릭해 Lambda에서 사용할 URL을 복사한다.
 
@@ -182,9 +182,9 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **STEP 2) Lambda 함수 생성**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 7.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 7.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 8.png" alt=""><figcaption></figcaption></figure>
 
 알람을 발송할 함수를 만들기 위해 AWS 콘솔에서 **Lambda서비스**로 이동한다.
 
@@ -192,7 +192,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 함수 생성 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 9.png" alt=""><figcaption></figcaption></figure>
 
 함수 이름, 런타임 및 아키텍처를 지정하고 **Next**버튼을 클릭한다.
 
@@ -203,25 +203,25 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 생성된 함수 확인 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 10.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 10.png" alt=""><figcaption></figcaption></figure>
 
 정상적으로 Lambda함수가 생성되었는지 확인해준다.
 
 **STEP 3) 환경 변수 편집**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 11.png" alt=""><figcaption></figcaption></figure>
 
 이후 Configuration → Environment variables로 들어가서 **Edit** 버튼을 클릭한다.
 
 **\[ 환경 변수 추가 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 12.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 12.png" alt=""><figcaption></figcaption></figure>
 
 Edit environment variables로 이동하여 **Add environment variables** 버튼을 클릭한다.
 
 **\[ 환경 변수에 키와 값 추가 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 13.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 13.png" alt=""><figcaption></figcaption></figure>
 
 **Key, Value**를 \*\*\*\*다음과 같이 추가한 이후 **Save**버튼을 눌러 환경 변수를 추가해 준다.
 
@@ -233,7 +233,7 @@ Edit environment variables로 이동하여 **Add environment variables** 버튼�
 
 **STEP 4) Lambda 코드 소스 편집**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 14.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 14.png" alt=""><figcaption></figcaption></figure>
 
 Code탭에서 **Lambda python 코드**를 작성 후 **Deploy**버튼을 클릭하여 배포해 준다.
 
@@ -377,15 +377,15 @@ def lambda_handler(event, context):
 
 **STEP 1) SNS 검색**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 15.png" alt=""><figcaption></figcaption></figure>
 
 알람을 전송 받을 주제 및 구독을 생성하기 위해 **SNS 서비스**로 이동한다.
 
 **STEP 2) 주제 생성**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 16.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 17.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 17.png" alt=""><figcaption></figcaption></figure>
 
 좌측 탭에서 Topic으로 이동 후 **Create topic** 버튼을 클릭한다.
 
@@ -394,7 +394,7 @@ def lambda_handler(event, context):
 
 **STEP 3-1 ) 구독 생성 - Email**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 18.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 18.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -402,29 +402,29 @@ def lambda_handler(event, context):
 
 **\[ 구독 생성 - 세부사항 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 19.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 19.png" alt=""><figcaption></figcaption></figure>
 
 * **Protocol** : Email
 * **Endpoint** : 알람 받을 이메일 주소
 
 **STEP 3-2 ) 구독 생성 - Lambda**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 20.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 20.png" alt=""><figcaption></figcaption></figure>
 
 생성된 주제 확인 후 **Create subscription**을 누른다.
 
 **\[ 구독 생성 - 세부사항 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 21.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 21.png" alt=""><figcaption></figcaption></figure>
 
 * **Protocol** : AWS Lambda
 * **Endpoint** : 생성한 lambda function 선택
 
 **STEP 4) 구독한 이메일 인증**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 22.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 22.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 23.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 23 (1).png" alt=""><figcaption></figcaption></figure>
 
 설정한 이메일 주소로 SNS의 Subscription Confirmation 메일이 전송된다. 이메일을 열어 **Confirm subscription** 버튼을 클릭해야 알림 수신이 정상적으로 설정된다.
 
@@ -432,7 +432,7 @@ def lambda_handler(event, context):
 
 **STEP 5) 트리거된 lambda 확인**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 24.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 24.png" alt=""><figcaption></figcaption></figure>
 
 Lambda에서 생성한 function을 확인해보면, 트리거가 된 것을 확인할 수 있다. 이렇게 되면 설정이 완료된 것이다.
 
@@ -444,19 +444,19 @@ Lambda에서 생성한 function을 확인해보면, 트리거가 된 것을 확�
 
 **STEP 1) EventBridge 검색**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 25.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 25.png" alt=""><figcaption></figcaption></figure>
 
 Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBridge 서비스**로 이동한다.
 
 **STEP 2) EventBridge 규칙 생성**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 26.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 26.png" alt=""><figcaption></figcaption></figure>
 
 **Create rule** 버튼을 클릭해서 새 EventBridge 규칙을 생성한다.
 
 **\[ 규칙 세부 정보 정의 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 27.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 27.png" alt=""><figcaption></figcaption></figure>
 
 * **Name** : **`ami-modifyimageattribute`**
 * **Description**: (옵션)
@@ -465,7 +465,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 이벤트 패턴 작성 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 28.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 28.png" alt=""><figcaption></figcaption></figure>
 
 * **Events :** Other
 *   **Event pattern :** Custom pattern(JSON editor)
@@ -488,7 +488,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 대상 선택 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 29.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 29.png" alt=""><figcaption></figcaption></figure>
 
 이벤트가 감지되었을 때 실행할 대상 지정하고 **Next**버튼을 클릭한다.
 
@@ -501,13 +501,13 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 태그 구성 (선택) ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 30.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 30.png" alt=""><figcaption></figcaption></figure>
 
 태그 구성은 선택 사항이므로 **Next**버튼을 클릭한다.
 
 **\[ 검토 및 생성 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 31.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 31.png" alt=""><figcaption></figcaption></figure>
 
 설정 내용 최종 확인 후 **Create rule**버튼을 클릭한다.
 
@@ -515,7 +515,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **STEP 3) 생성된 규칙 확인**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 32.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 32.png" alt=""><figcaption></figcaption></figure>
 
 규칙이 정상적으로 생성되었는지 확인해준다.
 
@@ -536,17 +536,17 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **STEP 1) EC2 인스턴스 생성**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 33.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 33.png" alt=""><figcaption></figcaption></figure>
 
 인스턴스를 생성하기 위해 EC2 서비스로 이동한다.
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 34.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 34.png" alt=""><figcaption></figcaption></figure>
 
 사용할 EC2 인스턴스를 **Launch instances** 클릭해 시작한다.
 
 **\[ 인스턴스 생성 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 35.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 35.png" alt=""><figcaption></figcaption></figure>
 
 * Name : **`ami-detect`**
 
@@ -554,7 +554,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ Key Pair 생성 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 36.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 36.png" alt=""><figcaption></figcaption></figure>
 
 * Create new key pair
 * **Key pair name: `ami-detect`**
@@ -565,19 +565,19 @@ ec2 인스턴스에 안전하고 효율적으로 접근하기 위해 설정하�
 
 **\[ 인스턴스 생성 확인 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 37.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 37.png" alt=""><figcaption></figcaption></figure>
 
 인스턴스가 생성된 것을 확인할 수 있다.
 
 **STEP 2) 탐지할 AMI 생성**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 38.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 38.png" alt=""><figcaption></figcaption></figure>
 
 생성된 인스턴스의 **Actions**에서 **Image and templates** 클릭 후, **Create image**를 \*\*\*\*선택하면 된다.
 
 **\[ AMI 생성 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 39.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 39.png" alt=""><figcaption></figcaption></figure>
 
 * **Image name** : **`ami-detect`**
 
@@ -585,49 +585,49 @@ ec2 인스턴스에 안전하고 효율적으로 접근하기 위해 설정하�
 
 **\[ AMI 생성 확인 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 40.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 40.png" alt=""><figcaption></figcaption></figure>
 
 EC2에서 AMIs를 클릭하면, 생성된 이미지를 확인할 수 있다.
 
 **\[ `ModifyImageAttribute` Public 탐지 이벤트 발생 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 41.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 41.png" alt=""><figcaption></figcaption></figure>
 
 EC2 Dashboard에서 Account attributes 부분에 **Data protection and security**를 클릭한다.
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 42.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 42.png" alt=""><figcaption></figcaption></figure>
 
 AMI에 대한 Block public access for AMIs 에서 **Manage**를 클릭한다.
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 43.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 43.png" alt=""><figcaption></figcaption></figure>
 
 Block new public sharing(신규 공개 공유 차단)을 해제하고 **Update**를 클릭한다.
 
 EC2 AMI는 기본적으로 Private이고, 퍼블릭으로 바꾸는 설정은 EC2 인스턴스 대시보드에서 설정을 먼저 변경해주어야 AMI에서 퍼블릭 설정을 할 수 있다. 그 이유는, **AWS의 보안 기본 정책**과 **의도하지 않은 정보 유출 방지를 위한 안전장치**이기 때문이다.
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 44.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 44.png" alt=""><figcaption></figcaption></figure>
 
 EC2 AMIs에서 Permission을 클릭한 후, **Edit AMI permissions**을 클릭한다.
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 45.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 45.png" alt=""><figcaption></figcaption></figure>
 
 AMI availability를 Private에서 Public으로 변경하고, **Save changes**을 클릭하면 알림이 오는 것을 확인할 수 있다.
 
 **\[ `ModifyImageAttribute` 외부 계정 공유 시도 탐지 이벤트 발생 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 46.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 46.png" alt=""><figcaption></figcaption></figure>
 
 EC2 AMIs에서 **Add account ID**를 클릭한다.
 
 **\[ 외부 계정 ID 추가 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 47.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 47.png" alt=""><figcaption></figcaption></figure>
 
 계정 ID의 경우, 12개의 숫자로 이루어져 있기 때문에, 12개의 랜덤 수를 작성해준다. 그리고 **Share AMI**를 클릭한다.
 
 **\[ 변경사항 저장 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image 48.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image 48.png" alt=""><figcaption></figcaption></figure>
 
 **Save changes**을 클릭하면 알림이 오는 것을 확인할 수 있다.
 
@@ -635,17 +635,17 @@ EC2 AMIs에서 **Add account ID**를 클릭한다.
 
 **\[ Email 알림 확인 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image_(10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image_(10).png" alt=""><figcaption></figcaption></figure>
 
 **\[ Discord 알림 확인 ]**
 
 **\[Ami Public]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/스크린샷_2025-07-24_152906.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/스크린샷_2025-07-24_152906.png" alt=""><figcaption></figcaption></figure>
 
 **\[AMI 외부 계정 공유]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/스크린샷_2025-07-24_152459.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/스크린샷_2025-07-24_152459.png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
