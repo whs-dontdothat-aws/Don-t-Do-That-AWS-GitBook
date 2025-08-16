@@ -97,7 +97,7 @@
 
 **STEP 1) SNS 검색**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 알람을 전송 받을 주제 및 구독을 생성하기 위해 **SNS 서비스**로 이동한다.
 
@@ -105,13 +105,13 @@
 
 **STEP 2) 주제 생성**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 좌측 탭에서 Topic으로 이동 후 **Create** topic 버튼을 클릭한다.
 
 
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **Type** : Standard
 * **Name** : `sns-cloudtrail-alarm` \</aside>
