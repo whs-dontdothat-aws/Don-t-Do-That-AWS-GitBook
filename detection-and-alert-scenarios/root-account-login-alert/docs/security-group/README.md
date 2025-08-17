@@ -2,6 +2,14 @@
 
 ***
 
+[#undefined](./#undefined "mention")
+
+[#undefined-3](./#undefined-3 "mention")
+
+[#undefined-4](./#undefined-4 "mention")
+
+***
+
 ### **\[ 시나리오 안내 ]**
 
 <table data-header-hidden><thead><tr><th width="114.4000244140625"></th><th valign="middle"></th></tr></thead><tbody><tr><td>내용</td><td valign="middle">인스턴스에 적용된 보안 그룹은 간혹 정해진 환경에서만 접근 가능하도록 인바운드 포트를 Open하여 운영합니다. 만약 공격자가 이를 변경하는 경우 외부로부터의 불필요한 접근 허용하게 됩니다. 이를 시나리오로 탐지하고 대응하는 과정을 구현 해 봅니다.</td></tr><tr><td>사용 서비스</td><td valign="middle">CloudTrail, EventBridge, SNS, Lambda</td></tr><tr><td>탐지 조건</td><td valign="middle">SecurityGroup의 정책 변경을 탐지하는 조건 확인</td></tr><tr><td>알림 방식</td><td valign="middle">SNS + Email 및 Discord 전송</td></tr><tr><td>대응</td><td valign="middle">관리자가 직접 대응</td></tr></tbody></table>
@@ -24,7 +32,7 @@
 
 ***
 
-### \[ 시나리오 전체적인 흐름 ]
+### \[ **시나리오 전체적인 흐름** ]
 
 <figure><img src="../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
 
