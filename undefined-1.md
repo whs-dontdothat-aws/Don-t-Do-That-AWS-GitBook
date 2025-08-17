@@ -357,6 +357,73 @@ Subscription Confirmation 메일의 **Confirm subscription 하이퍼링크**를 
 
 <summary>4. EventBridge 규칙 생성</summary>
 
+**STEP 1) EventBridge 검색**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+
+Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBridge 서비스**로 이동한다.
+
+
+
+**STEP 2) EventBridge 생성**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
+
+**EventBridge** 서비스 화면 오른쪽 상단의 **EventBridge Rule**을 선택하고 **Create rule**버튼을 클릭한다.
+
+
+
+**\[ 상세 규칙 설정 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
+
+규칙 이름, 설명, Event bus 종류, 규칙 유형(이벤트 패턴 기반 or 스케줄 기반) 설정 후 **Next버튼**을 클릭한다.
+
+* **Name** : **`eventbridge-loggroup-change`**
+* **Event Bus** : default
+* **Rule Type** : Rule with an event pattern (이벤트 패턴이 있는 규칙)
+
+
+
+**\[ 이벤트 패턴 작성 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
+
+탐지할 이벤트 조건을 설정을 설정하고 **Next**버튼을 클릭한다.
+
+* **Event Source :** Other
+*   **Event pattern** : Custom pattern (JSON editor)
+
+    사용자가 원하는 조건만 감지할 수 있도록 JSON으로 직접 작성
+*   로그 그룹 변경 또는 삭제 시도를 탐지하는 JSON 코드
+
+    ```json
+    {
+      "detail-type": ["AWS API Call via CloudTrail"],
+      "source": ["aws.logs"],
+      "detail": {
+        "eventName": [
+          "DeleteLogGroup",         
+          "PutRetentionPolicy",       
+          "PutSubscriptionFilter",   
+          "DeleteSubscriptionFilter",
+          "PutResourcePolicy",      
+          "DeleteResourcePolicy"    
+        ]
+      }
+    }
+    ```
+
+**\[ 설정한 이벤트 안내 ]**
+
+<table><thead><tr><th width="203">이벤트 이름</th><th width="166">설명</th><th>탐지 목적</th></tr></thead><tbody><tr><td><strong><code>DeleteLogGroup</code></strong></td><td>로그 그룹 삭제</td><td>중요 로그 삭제로 인한 데이터 유실 및 보안 사고 방지</td></tr><tr><td><strong><code>PutRetentionPolicy</code></strong></td><td>로그 보존 기간 변경</td><td>로그 보존 정책 조작 시도 감지로 컴플라이언스 및 감사 추적 유지</td></tr><tr><td><strong><code>PutSubscriptionFilter</code></strong></td><td>로그 필터 추가</td><td>외부로의 로그 데이터 전달/유출 및 무단 전달 경로 추가 탐지</td></tr><tr><td><strong><code>DeleteSubscriptionFilter</code></strong></td><td>로그 필터 제거</td><td>필터 삭제를 통한 로그 유출 탐지 차단 등 보안 설정 변경 감지</td></tr><tr><td><strong><code>PutResourcePolicy</code></strong></td><td>리소스 정책 설정</td><td>로그 그룹 정책 오남용 방지 및 인증 관리</td></tr><tr><td><strong><code>DeleteResourcePolicy</code></strong></td><td>리소스 정책 제거</td><td>정책 삭제를 통한 무단 접근 위험 증대 및 보안 정책 훼손 탐지</td></tr></tbody></table>
+
+
+
+
+
+
+
 
 
 </details>
