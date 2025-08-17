@@ -68,8 +68,6 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 <figure><img src=".gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
 
-예시 사진
-
 * **Author from scratch** 선택
 * **Function name** : `lamda-root-login`
 * **Runtime** : Python 3.13
@@ -79,8 +77,6 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 <figure><img src=".gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 
-예시 사진
-
 정상적으로 Lambda함수가 생성되었는지 확인해준다.
 
 </details>
@@ -89,7 +85,47 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 <summary>2.S3 버킷 및 CloudTrail 추적 생성</summary>
 
+**STEP 1) S3 검색**&#x20;
 
+<figure><img src=".gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+
+Cloudtrail 로그를 저장할 버킷을 만들기 위해 S3 서비스로 이동한다.
+
+**STEP 2) S3 bucket 생성**
+
+**\[ S3 bucket 생성]**
+
+<figure><img src=".gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
+
+S3 서비스 화면 오른쪽 상단의 **Create a bucket**버튼을 클릭한다.
+
+**\[ bucket 속성 선택 ]**&#x20;
+
+<figure><img src=".gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/스크린샷 2025-06-30 163654.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/스크린샷 2025-06-30 163705.png" alt=""><figcaption></figcaption></figure>
+
+* **Bucket name :** **`s3-root-login-detect`**
+* **Object Ownership :** ACLs disabled (recommended)
+* **Block Public Access settings for this bucket :** Block all public access
+* **Bucket Versioning :** Enable
+* **Encryption type :** Server-side encryption with Amazon S3 managed keys (SSE-S3)
+
+**STEP 3) CloudTrail 검색**&#x20;
+
+<figure><img src=".gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
+
+AWS 계정 내에서 발생하는 API 호출 및 활동 내역을 자동으로 기록하고 추적하기 위해 CloudTrail서비스로 이동한다.&#x20;
+
+**STEP 4) CloudTrail 생성**
+
+<figure><img src=".gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+
+**Create trail**버튼을 클릭해 사용할 추적을 생성한다.
+
+**\[ 추적 속성 선택 ]**
 
 </details>
 
