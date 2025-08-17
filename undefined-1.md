@@ -420,11 +420,146 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 
 
+{% hint style="success" %}
+이벤트 추가 설명과 해당 이벤트 발생시키는 CLI 정리
 
 
 
+1. 로그 그룹 삭제 (`DeleteLogGroup`) 로그 그룹 삭제는 AWS에서 `DeleteLogGroup` API 호출을 통해 로그 그룹 전체와 그 안의 로그를 모두 제거하는 정책이다.
+
+```bash
+aws logs delete-log-group --log-group-name "test" --region ap-northeast-2
+```
+
+로그 그룹 삭제가 중요한 이유는 다음과 같다.
+
+* 공격자가 로그 그룹 자체를 삭제하면 **과거 모든 로그를 완전히 제거**하여 추적이 불가능하게 된다.
+* 이와 같은 행동은 **증거 은폐 시도**로 간주될 수 있으며, 반드시 탐지되어야 한다.
+
+따라서 로그 그룹 삭제는 고위험 이벤트이며 실시간 알림 및 분석이 필요하다.
+
+2. 보존 설정 변경 (`PutRetentionPolicy`) 보존 설정 변경은 AWS에서 `PutRetentionPolicy` 로 보존 기간을 설정하는 정책이다. 해당 정책은 지정된 이후의 로그는 자동으로 삭제된다.
+
+```bash
+aws logs put-retention-policy --log-group-name "test" --retention-in-days 7 --region ap-northeast-2
+```
+
+보존 기간 설정이 중요한 이유는 다음과 같다.
+
+* 공격자가 보존 기간을 짧게 설정하면 과거 로그가 자동 삭제되어 추적이 불가하다.
+* 공격자가 보존 정책을 아예 없애거나 변경하면 흔적 지우는 시도가 있었음을 알 수 있다.
+
+결국 해당 정책은 보안 관점에서 이상 행위 시그널로 판단할 수 있다.
+
+3. 로그 필터 추가 (`PutSubscriptionFilter`) 로그 필터 추가는 AWS에서 `PutSubscriptionFilter` 를 통해 로그 그룹의 로그를 외부 대상(Kinesis, Lambda, Firehose 등)으로 실시간 전송하는 정책이다.
+
+```bash
+aws logs put-subscription-filter \\
+  --log-group-name "test" \\
+  --filter-name "filter" \\
+  --filter-pattern "" \\
+  --destination-arn "arn:aws:lambda:ap-northeast-2:500113025916:function:lambda-loggroup-alarm"
+```
+
+로그 필터 설정이 중요한 이유는 다음과 같다.
+
+* 공격자가 로그를 특정 외부 대상(Lambda 등)으로 전송하게 하여, **민감 정보 유출**이나 **비인가 분석**을 시도할 수 있다.
+* 필터가 갑작스레 추가될 경우, **로그 흐름 변경** 여부를 반드시 확인해야 한다.
+
+이런 설정은 외부 유출 또는 우회 경로로 악용될 수 있으므로 주의 깊게 감시해야 한다.
+
+4. 로그 필터 제거 (`DeleteSubscriptionFilter`) 로그 필터 제거는 AWS에서 `DeleteSubscriptionFilter` 를 통해 로그 그룹에서 설정된 로그 전송 필터를 삭제하는 정책이다.
+
+```bash
+aws logs delete-subscription-filter \\
+  --log-group-name "test" \\
+  --filter-name "filter"
+```
+
+* 필터가 제거되면 **로그가 더 이상 외부 시스템(SIEM, Lambda 등)으로 전달되지 않는다**.
+* 이는 탐지를 피하기 위한 공격자의 **감시 우회** 시도일 수 있다.
+
+따라서 기존 필터가 삭제되는 이벤트는 이상 징후로 판단하고 대응해야 한다.
+
+5. 리소스 정책 설정 (`PutResourcePolicy`) 리소스 정책 설정은 AWS에서 `PutResourcePolicy` 를 통해 CloudWatch Logs 서비스에 대한 IAM 리소스 기반 권한 정책을 설정하는 정책이다.
+
+```bash
+aws logs put-resource-policy \\
+  --policy-name "test-policy" \\
+  --policy-document '{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "logs:CreateLogStream",
+        "Resource": "*"
+      }
+    ]
+  }'
+```
+
+리소스 정책 설정이 중요한 이유는 다음과 같다.
+
+* 공격자가 외부 계정 또는 자신에게 로그 그룹 접근 권한을 부여할 수 있다.
+* 로그에 대한 **비인가 접근 가능성**이 증가하여, 보안 위협이 된다.
+
+결국 정상적인 연동이 아닌 경우, 반드시 의심 행위로 간주되어야 한다.
+
+6. 리소스 정책 제거 (`DeleteResourcePolicy`) 리소스 정책 제거는 AWS에서 `DeleteResourcePolicy` 를 통해 CloudWatch 로그의 IAM 정책을 삭제하는 정책이다.
+
+```bash
+aws logs delete-resource-policy --policy-name test-policy
+```
+
+리소스 정책 제거가 중요한 이유는 다음과 같다.
+
+* 기존에 설정되어 있던 **접근 제어가 무력화**될 수 있다.
+* 공격자는 접근 제한을 제거함으로써 **제한 없는 로그 조회나 수정**을 시도할 수 있다.
+
+정책이 삭제되면 누구든 로그 리소스에 접근할 수 있으므로, **즉각적인 탐지와 대응이 필수**이다.
+{% endhint %}
 
 
+
+**\[ 대상 선택 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
+
+이벤트가 감지되었을 때 실행할 대상 지정하고 **Next**버튼을 클릭한다.
+
+* **Target Types** : AWS service
+* **Select a target** : SNS topic
+* **Target location** : Target in this account
+* **Topic** : 앞서 생성한 sns topic 선택(**`sns-loggroup-alarm`**)
+* **Execution role** : Create a new role for this specific resources (이 특정 리소스에 대해 역할 생성)
+* **Role name** : 자동 할당
+
+
+
+\[ 태그 구성 (선택) ]
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
+
+태그 구성은 선택 사항이므로 **Next**버튼을 클릭한다.
+
+
+
+**\[ 검토 및 생성 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
+
+설정 내용 최종 확인 후 **Create rule**버튼을 클릭한다.
+
+* status - **enabled** 확인
+
+
+
+**STEP 3) 생성된 규칙 확인**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+
+규칙이 정상적으로 생성되었는지 확인한다.
 
 </details>
 
