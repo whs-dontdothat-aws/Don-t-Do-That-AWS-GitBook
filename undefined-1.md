@@ -2,16 +2,25 @@
 
 **\[ 목차 ]**
 
+[#undefined](undefined-1.md#undefined "mention")
+
+[#undefined-1](undefined-1.md#undefined-1 "mention")
+
+[#undefined-2](undefined-1.md#undefined-2 "mention")
+
+[#undefined-3](undefined-1.md#undefined-3 "mention")
+
+[#undefined-5](undefined-1.md#undefined-5 "mention")
+
+[#id-1.cloudtrail](undefined-1.md#id-1.cloudtrail "mention")
+
+
+
 ***
 
 ### **\[ 시나리오 안내 ]**
 
-|        |                                                                                                                                                                                        |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 내용     | 공격자가 분석 회피를 위해 로그 그룹을 삭제하거나 로그 수집을 변경하는 시도 탐지합니다.                                                                                                                                      |
-| 사용 서비스 | CloudTrail, EventBridge, SNS                                                                                                                                                           |
-| 탐지 조건  | <p>1. 로그 그룹에 대해서 정책을 삭제하거나 구성을 변경하려는 시도를 탐지합니다.<br>2. DeleteLogGroup, PutRetentionPolicy 등 다양한 조건을 사전 학습하여 어떤 행위가 로그 그룹에 영향을 미칠 수 있는지 검토합니다.<br>3. 해당 조건을 토대로 로그 그룹에 대한 알람을 진행합니다.</p> |
-| 알림 방식  | SNS + Email 및 Discord 전송                                                                                                                                                               |
+<table><thead><tr><th width="148"></th><th></th></tr></thead><tbody><tr><td>내용</td><td>공격자가 분석 회피를 위해 로그 그룹을 삭제하거나 로그 수집을 변경하는 시도 탐지합니다.</td></tr><tr><td>사용 서비스</td><td>CloudTrail, EventBridge, SNS</td></tr><tr><td>탐지 조건</td><td>1. 로그 그룹에 대해서 정책을 삭제하거나 구성을 변경하려는 시도를 탐지합니다.<br>2. DeleteLogGroup, PutRetentionPolicy 등 다양한 조건을 사전 학습하여 어떤 행위가 로그 그룹에 영향을 미칠 수 있는지 검토합니다.<br>3. 해당 조건을 토대로 로그 그룹에 대한 알람을 진행합니다.</td></tr><tr><td>알림 방식</td><td>SNS + Email 및 Discord 전송</td></tr></tbody></table>
 
 #### 실습 개요
 
@@ -47,14 +56,316 @@
 * 본 서비스의 주요 리소스는 “ap-northeast-2(Seoul)”에서 리전에서 진행됩니다. 주요 서비스 및 기능은 제공되는 서비스 리전에 따라 다를 수 있습니다.
 * 리소스명은 해당 시나리오에 맞게 임의로 설정하였으며 사용자가 원하는 이름으로 바꿔도 무방합니다.
 
+
+
 **\[ 콘솔 리소스명 ]**
 
-| **리소스 종류**           | **리소스명 설정**                       | **목적**                                             |
-| -------------------- | --------------------------------- | -------------------------------------------------- |
-| CloudTrail Trail     | **`ct-trail-monitor`**            | AWS 계정 내 API 활동을 감시하고 로그를 S3로 저장                   |
-| Discord 채널           | **`log-group-alarm`**             | SNS에 연동된 Lambda 함수를 통해 알림 메시지를 수신하고 확인할 수 있는 알림 채널 |
-| Lambda Function      | **`lambda-loggroup-alarm`**       | SNS 메시지를 파싱하여 Discord Webhook으로 이상 행위 알림 전송        |
-| SNS Topic            | **`sns-loggroup-alarm`**          | 이벤트 발생 시 이메일 및 Lambda로 알림을 전송하는 주제                 |
-| EventBridge Rule     | **`eventbridge-loggroup-change`** | 특정 CloudTrail 이벤트 발생 시 SNS로 이벤트 전송하는 트리거 역할        |
-| CloudWatch Log Group | **`loggroup-test`**               | 로그 그룹 삭제 및 변경 시 알림이 발생하는지 확인하기 위해 생성하는 테스트리소스      |
+<table data-header-hidden><thead><tr><th width="203">리소스 종류</th><th width="250">리소스명 설정</th><th>목적</th></tr></thead><tbody><tr><td><strong>리소스 종류</strong></td><td><strong>리소스명 설정</strong></td><td><strong>목적</strong></td></tr><tr><td>CloudTrail Trail</td><td><strong><code>ct-trail-monitor</code></strong></td><td>AWS 계정 내 API 활동을 감시하고 로그를 S3로 저장</td></tr><tr><td>Discord 채널</td><td><strong><code>log-group-alarm</code></strong></td><td>SNS에 연동된 Lambda 함수를 통해 알림 메시지를 수신하고 확인할 수 있는 알림 채널</td></tr><tr><td>Lambda Function</td><td><strong><code>lambda-loggroup-alarm</code></strong></td><td>SNS 메시지를 파싱하여 Discord Webhook으로 이상 행위 알림 전송</td></tr><tr><td>SNS Topic</td><td><strong><code>sns-loggroup-alarm</code></strong></td><td>이벤트 발생 시 이메일 및 Lambda로 알림을 전송하는 주제</td></tr><tr><td>EventBridge Rule</td><td><strong><code>eventbridge-loggroup-change</code></strong></td><td>특정 CloudTrail 이벤트 발생 시 SNS로 이벤트 전송하는 트리거 역할</td></tr><tr><td>CloudWatch Log Group</td><td><strong><code>loggroup-test</code></strong></td><td>로그 그룹 삭제 및 변경 시 알림이 발생하는지 확인하기 위해 생성하는 테스트리소스</td></tr></tbody></table>
+
+***
+
+### **\[ 시나리오 상세 구현 과정 ]**
+
+<details>
+
+<summary>1. CloudTrail 추적 생성</summary>
+
+**STEP 1) CloudTrail 검색**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+AWS 계정 내에서 발생하는 API 호출 및 활동 내역을 자동으로 기록하고 추적하기 위해 **CloudTrail서비스**로 이동한다. 리전에 이미 생성된 trail이 있을 경우, 추가 생성 없이 **2번 단계** 으로 넘어간다.
+
+
+
+**STEP 2 ) CloudTrail 생성**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Create trail 버튼을 클릭해 사용할 추적을 생성한다.
+
+
+
+**\[ 추적 속성 선택 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (2).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
+
+CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 클릭한다.
+
+**Log file SSE-KMS encryption은 S3 버킷에 로그가 업로드 될 때마다 알림**을 SNS로 보내는 용도이므로 체크 해제한다.
+
+* **Trail name** : ct-trail-monitor
+* **Storage location :** Create new S3 bucket
+* **Additional settings - Log file validation :** Enabled 해제
+
+
+
+**\[ 로그 이벤트 선택 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (3).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
+
+로그 이벤트, 이벤트 관리 옵션 선택 후 **Next**버튼을 클릭한다.
+
+* **Events** : Management events, Insights events
+* **Management events - API activity :** Read, Write 체크
+
+
+
+**\[ 검토 및 생성 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (4).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
+
+각 단계 검토 후 **Create trail** 버튼을 클릭하면 추적이 생성된다.
+
+
+
+**STEP 3) 추적 생성 확인**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (5).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
+
+대시보드에서 정상적으로 추적이 생성되었는지 확인한다.
+
+</details>
+
+<details>
+
+<summary>2. Lambda 함수 생성 및 Discord 연동</summary>
+
+**STEP 1) Discord 채널 생성 및 WebHook 설정**
+
+**\[ 채널 만들기 ]**
+
+<div align="left"><figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (6).png" alt="" width="467"><figcaption></figcaption></figure></div>
+
+로그 그룹의 변경/삭제 이벤트 알림을 수신 할 채널을 만들어준다.
+
+* **채널 이름** : **`log-group-alarm`**
+
+
+
+**\[ 채널 편집 ]**
+
+<div align="left"><figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure></div>
+
+위와 같이 생성된 채널에서 **채널 편집**을 클릭한다.
+
+
+
+**\[ 웹후크 연동 ]**
+
+<div align="left"><figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (8).png" alt="" width="563"><figcaption></figcaption></figure></div>
+
+왼쪽 상단의 설정 목록에서 **연동 → 웹후크 만들기**를 클릭하여 웹후크 봇을 만들어 준다.
+
+
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+
+
+**웹후크 URL 복사** 버튼을 클릭해 Lambda에서 사용할 URL을 복사한다.
+
+* **이름** : WEBHOOK\_URL
+* **채널** : **`#log-group-alarm`** (앞서 생성한 채널 이름 선택)
+
+
+
+**STEP 2) Lambda 함수 생성**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+알람을 발송할 함수를 만들기 위해 AWS 콘솔에서 **Lambda 서비스**로 이동한다.
+
+
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클릭한다.
+
+
+
+**\[ 함수 생성 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+
+함수 이름, 런타임 및 아키텍처를 지정하고 **Next**버튼을 클릭한다.
+
+* **Author from scratch** 선택
+* **Function name** : **`lambda-loggroup-alarm`**
+* **Runtime** : Python 3.13
+* **Architecture** : x86\_64
+
+
+
+**\[ 생성된 함수 확인 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+생성된 Lambda 함수를 확인할 수 있다.
+
+
+
+**STEP 3) 환경 변수 편집**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+이후 Configuration → Environment variables로 들어가서 **Edit** 버튼을 클릭한다.
+
+
+
+
+
+**\[ 환경 변수에 키와 값 추가 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
+**Key, Value**를 \*\*\*\*다음과 같이 추가한 이후 **Save**버튼을 눌러 환경 변수를 추가해 준다.
+
+* **Key, Value는 표를 참고**
+
+| Key                   | **용도/설명**            | Value                                                                                           |
+| --------------------- | -------------------- | ----------------------------------------------------------------------------------------------- |
+| DISCORD\_WEBHOOK\_URL | 디스코드 알림용 Webhook URL | [https://discord.com/api/webhooks/\~\~\~](https://discord.com/api/webhooks/~~~) (알림 받을 웹후크 url) |
+
+
+
+**STEP 4) Lambda 코드 소스 편집**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+
+Code탭에서 Lambda python 코드를 작성 후 Deploy버튼을 클릭하여 배포한다.
+
+```python
+import os, json, urllib3
+
+http = urllib3.PoolManager()
+WEBHOOK = os.environ['DISCORD_WEBHOOK_URL'] # 위에서 정의한 key와 동일하게 작성
+
+def lambda_handler(event, context):
+    for rec in event["Records"]:
+        msg = json.loads(rec["Sns"]["Message"])
+        detail = msg.get("detail", {})
+        
+        # Discord로 보낼 메시지 내용 포맷팅
+        content = (
+            f"**[ 로그 그룹 변경 이벤트 탐지 ]**\n"
+            f"- 이벤트 이름: `{detail.get('eventName')}`\n"
+            f"- 로그 그룹: `{detail.get('requestParameters', {}).get('logGroupName', 'N/A')}`\n"
+            f"- 사용자: `{detail.get('userIdentity', {}).get('arn', 'Unknown')}`\n"
+            f"- 시간: {msg.get('time')}"
+        )
+        # 웹훅을 통해 Discord로 HTTP POST 요청(알림 전송)
+        http.request(
+            "POST", WEBHOOK,
+            body=json.dumps({"content": content}).encode(),
+            headers={"Content-Type": "application/json"}
+        )
+```
+
+</details>
+
+<details>
+
+<summary>3. SNS 주제 생성 및 구독 설정</summary>
+
+**STEP 1) SNS 검색**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+
+알람을 전송 받을 주제 및 구독을 생성하기 위해 **SNS 서비스**로 이동한다.
+
+
+
+STEP 2) 주제 생성
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+
+좌측 탭에서 Topic으로 이동 후 **Create topic 버튼**을 클릭한다.
+
+
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+
+* **Type** : Standard(표준)
+* **Name** : **`sns-loggroup-alarm`**
+
+
+
+**STEP 3) Email 구독 생성**
+
+<div align="left"><figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (20).png" alt="" width="563"><figcaption></figcaption></figure></div>
+
+생성된 주제 확인 후 **Create subscription 버튼**을 클릭한다.
+
+
+
+**\[ 구독 생성 - 세부사항 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+
+* **Protocol** : Email
+* **Endpoint** : 이메일 주소
+
+
+
+**STEP 4) 구독한 이메일 인증**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+
+생성된 구독을 확인하면 Status가 Pending Confirmation(확인 대기 중)이다.
+
+입력한 메일 주소로 온 확인 메일을 통해 인증을 진행한다.
+
+
+
+**\[ 이메일 인증 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+
+<div align="left"><figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure></div>
+
+Subscription Confirmation 메일의 **Confirm subscription 하이퍼링크**를 눌러 접속하면 SNS 구독 등록이 완료된다.
+
+
+
+**STEP 5) Lambda 구독 생성**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+
+디스코드로 알림을 보내기 위해 위에서 만든 Lambda 구독을 추가 생성한다.
+
+
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+
+* **Protocol** : AWS Lambda
+* **Endpoint** : 위에서 생성한 Lambda **(`lambda-loggroup-alarm`)** 선택
+
+
+
+**\[ Email, Lambda 구독 확인 ]**
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+
+최종적으로 위와 같이 Email, Lambda가 구독 설정되어 SNS주제와 연동된 모습을 확인 할 수 있다.
+
+</details>
+
+<details>
+
+<summary>4. EventBridge 규칙 생성</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>5. 테스트</summary>
+
+
+
+</details>
 
