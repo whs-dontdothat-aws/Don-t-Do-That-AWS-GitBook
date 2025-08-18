@@ -127,5 +127,128 @@ AWS 계정 내에서 발생하는 API 호출 및 활동 내역을 자동으로 �
 
 **\[ 추적 속성 선택 ]**
 
+<figure><img src=".gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
+
+CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 클릭한다.
+
+* **Trail name** : **`ct-trail-monitor`**
+* **Storage location :** Use existing S3 bucket (**Browe**를 클릭해 앞서 생성한 버킷 선택)
+* **Additional settings**
+  * **Log file validation :** Enabled
+
+**\[ 로그 이벤트 선택 ]**
+
+<figure><img src=".gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
+
+로그 이벤트, 이벤트 관리 옵션 선택 후 **Next**버튼을 클릭한다.
+
+* **Events** : Management events
+* **Management events - API activity :** Read, Write
+
+**\[ 검토 및 생성 ]**
+
+<figure><img src=".gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
+
+각 단계 검토 후 **Create trail** 버튼을 클릭하면 추적이 생성된다.
+
+**STEP 5) 추적 생성 확인**
+
+<figure><img src=".gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
+
+대시보드에서 정상적으로 추적이 생성되었는지 확인한다.
+
 </details>
 
+<details>
+
+<summary>3.EventBridge 규칙 생성</summary>
+
+**STEP 1) EventBridge 검색**
+
+<figure><img src=".gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
+
+Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBridge 서비스**로 이동한다.
+
+**STEP 2) EventBridge 생성**
+
+<figure><img src=".gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
+
+EventBridge 서비스 화면 오른쪽 상단의 EventBridge Rule을 선택하고 **Create rule**버튼을 클릭한다.
+
+**\[ 상세 규칙 설정 ]**
+
+<figure><img src=".gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
+
+* **Name** : **`eventbridge-root-login-pattern`**
+* **Event bus :** default
+* **Rule type** : Rule with an event pattern
+
+**\[ 이벤트 패턴 작성 ]**
+
+<figure><img src=".gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
+
+탐지할 이벤트 조건을 설정을 설정하고 **Next**버튼을 클릭한다.
+
+* **Events :** Other
+* **Event pattern** : Custom pattern (JSON editor)
+
+```json
+{
+    "detail-type": ["AWS Console Sign In via CloudTrail"],
+    "detail": {
+      "userIdentity": {
+        "type": ["Root"]
+      },
+      "eventName": ["ConsoleLogin"]
+    }
+}
+```
+
+**\[ 설정한 이벤트 안내 ]**
+
+| 이벤트 이름         | 설명            | 탐지 목적                                          |
+| -------------- | ------------- | ---------------------------------------------- |
+| `ConsoleLogin` | 웹 콘솔에 로그인 이벤트 | **이상 행위 여부 판단** - 모든 권한을 가진 루트 계정으로 로그인할 경우 식별 |
+
+**\[ 대상 선택 ]**
+
+<figure><img src=".gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
+
+이벤트가 감지되었을 때 실행할 대상 지정하고 **Next**버튼을 클릭한다.
+
+* **Target types:** AWS service
+* **Select a target:** Lambda function
+* **Target location:** Target in this account
+* **Topic:** 앞서 생성한 Lambda function 선택
+
+**\[ 태그 구성 (선택) ]**
+
+<figure><img src=".gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
+
+태그 구성은 선택 사항이므로 **Next**버튼을 클릭한다.
+
+**\[ 검토 및 생성 ]**
+
+<figure><img src=".gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
+
+설정 내용 최종 확인 후 **Create rule**버튼을 클릭한다.
+
+* status - **enabled** 확인
+
+**STEP 3) 생성된 규칙 확인**
+
+<figure><img src=".gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
+
+규칙이 정상적으로 생성되었는지 확인해준다.
+
+</details>
+
+<details>
+
+<summary>4.SNS 주제 생성 및 구독 설정</summary>
+
+
+
+</details>
+
+\[ 설정한 이벤트 안내 ]
