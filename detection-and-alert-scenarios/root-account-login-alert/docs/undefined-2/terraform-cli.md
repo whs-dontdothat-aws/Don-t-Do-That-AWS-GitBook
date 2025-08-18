@@ -292,6 +292,10 @@ terraform apply 이후, 설정한 이메일 주소로 SNS의 Subscription Confir
 
 **Confirm subscription**를 눌러 인증을 완료하면, SNS 구독이 정상적으로 등록된 것이다.
 
+
+
+**\[ 테스트 진행 ]**
+
 {% embed url="https://app.gitbook.com/o/Ovrk2sznEJVoEThBhvLL/s/O10UPNyD9g2PLsfoMELd/undefined-2" %}
 
 인증 후 위를 참고하여 테스트를 진행하면 된다.
@@ -312,11 +316,5 @@ Destroy complete! Resources: 0 destroyed.
 ```
 
 위와 같은 메시지가 출력되면, 모든 리소스가 성공적으로 정리되었음을 의미한다.
-
-
-
-**\[ 전체 코드 압축 파일 ]**
-
-[Terraform-code.zip](attachment:d61ae13b-88bf-4ed5-8861-638ddb998dd5:Terraform-code.zip)
 {% endtab %}
 {% endtabs %}
