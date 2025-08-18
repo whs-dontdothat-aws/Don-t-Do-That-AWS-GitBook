@@ -292,11 +292,11 @@ terraform apply 이후, 설정한 이메일 주소로 SNS의 Subscription Confir
 
 **Confirm subscription**를 눌러 인증을 완료하면, SNS 구독이 정상적으로 등록된 것이다.
 
-.
+{% embed url="https://app.gitbook.com/o/Ovrk2sznEJVoEThBhvLL/s/O10UPNyD9g2PLsfoMELd/undefined-2" %}
 
 인증 후 위를 참고하여 테스트를 진행하면 된다.
 
-.
+
 
 **\[ destroy ]**
 
