@@ -198,11 +198,11 @@ AWS Config > Rules > Add rules를 클릭한다.
 
 **STEP 4 ) 구독한 이메일 인증**
 
-<figure><img src=".gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 알림 수신을 설정한 Email에 Subscription Confirmation 메일을 전송 받고 \*\*\*\*생성된 구독 확인 후 메일 인증을 해야 한다.
 
-<figure><img src=".gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Confirm subscription**를 눌러 인증을 완료하면, SNS 구독이 정상적으로 등록된 것이다.
 
@@ -214,29 +214,23 @@ AWS Config > Rules > Add rules를 클릭한다.
 
 **STEP 1) EventBridge 검색**
 
-![image.png](attachment:3c5b22a1-6487-40f9-aff3-36dc75a71e62:image.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 AWS 서비스들이 발생시키는 이벤트를 감지하고, 조건에 따라 자동으로 후속 작업을 실행할 수 있도록 연결해주기 위해 AWS 콘솔에서 **EventBridge 서비스**로 이동한다.
 
-\</aside>
+
 
 **STEP 2) EventBridge 생성**
 
-![image.png](attachment:c9822578-a0f8-492e-9e34-25ececdaf47d:image.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 **Create rule** 버튼을 클릭해서 새 EventBridge 규칙을 생성한다.
 
-\</aside>
+
 
 **\[ 규칙 세부 정보 정의 ]**
 
-![스크린샷 2025-07-16 210112.png](attachment:d3894aae-8e19-4ece-b629-2ddb981f2f90:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_210112.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 210112.png" alt=""><figcaption></figcaption></figure>
 
 * **Name** : **`eventbridge-config-public`**
 * **Description**: (옵션)
@@ -245,15 +239,13 @@ AWS 서비스들이 발생시키는 이벤트를 감지하고, 조건에 따라 
 
 규칙 이름, 설명, EventBus 종류, 규칙 유형(이벤트 패턴 기반 or 스케줄 기반) 설정 후 **Next버튼**을 클릭한다.
 
-\</aside>
+
 
 **\[ 이벤트 패턴 작성 ]**
 
-![스크린샷 2025-07-16 210309.png](attachment:5f221ae6-25d2-4f9b-8384-2821003cdd23:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_210309.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 210309.png" alt=""><figcaption></figcaption></figure>
 
-![스크린샷 2025-07-16 210552.png](attachment:ce31c1e1-9a33-43a7-bad0-000fd7091d4a:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_210552.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 210552.png" alt=""><figcaption></figcaption></figure>
 
 * **Events :** Other
 *   **Event pattern** : Custom pattern (JSON editor)
@@ -277,71 +269,64 @@ AWS 서비스들이 발생시키는 이벤트를 감지하고, 조건에 따라 
     }
     ```
 
-**\[ 설정한 규칙 안내]**
 
-| 규칙 이름                                          | 개념                                                      |
-| ---------------------------------------------- | ------------------------------------------------------- |
-| `s3-bucket-public-read-prohibited`             | S3 버킷이 **인터넷에 공개적으로 읽기 가능**한 상태인지 감지하는 AWS Config 규칙이다. |
-| 즉, 누구나 객체를 다운로드할 수 있는 상태를 비준수(위험)로 판단한다.       |                                                         |
-| `s3-bucket-public-write-prohibited`            | S3 버킷이 **인터넷에 공개적으로 쓰기 가능**한 상태인지 감지하는 규칙이다.            |
-| 즉, 누구나 객체를 업로드하거나 덮어쓸 수 있는 상태를 **비정상으로 간주한다.** |                                                         |
-| \</aside>                                      |                                                         |
+
+**\[ 설정 규칙 안내]**
+
+| 규칙 이름                               | 개념                                                                                                                              |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `s3-bucket-public-read-prohibited`  | <p>S3 버킷이 <strong>인터넷에 공개적으로 읽기 가능</strong>한 상태인지 감지하는 AWS Config 규칙이다.<br>즉, 누구나 객체를 다운로드할 수 있는 상태를 비준수(위험)로 판단한다.</p>         |
+| `s3-bucket-public-write-prohibited` | <p>S3 버킷이 <strong>인터넷에 공개적으로 쓰기 가능</strong>한 상태인지 감지하는 규칙이다.<br>즉, 누구나 객체를 업로드하거나 덮어쓸 수 있는 상태를 <strong>비정상으로 간주한다.</strong></p> |
 
 **\[ 대상 1 선택 ]**
 
-![스크린샷 2025-07-16 210706.png](attachment:ce3d66dc-db2f-4f9f-a0c6-be283eb1d745:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_210706.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 210706.png" alt=""><figcaption></figcaption></figure>
 
 이벤트 발생 시 알릴 대상 (Target)을 설정한다.
 
 * **Target types:** AWS service
 * **Select a target:** SNS topic
 * **Target location:** Target in this account
-* **Topic:** 미리 만들어 둔 sns topic 선택 \</aside>
+* **Topic:** 미리 만들어 둔 sns topic 선택&#x20;
+
+
 
 **\[ 대상 2 선택 ]**
 
-![스크린샷 2025-07-16 210811.png](attachment:31f911ca-8ca4-4a8f-9faf-211ba1371b32:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_210811.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 210811.png" alt=""><figcaption></figcaption></figure>
 
 이벤트가 감지되었을 때 실행할 대상 지정하고 **Next**버튼을 클릭한다.
 
 * **Target types:** AWS service
 * **Select a target:** Lambda Function
 * **Target location:** Target in this account
-* **Topic:** 미리 만들어 둔 lambda 함수 선택 \</aside>
+* **Topic:** 미리 만들어 둔 lambda 함수 선택&#x20;
+
+
 
 **\[ 태그 구성 (선택) ]**
 
-![image.png](attachment:e5371439-fac3-4a7d-8a35-7fff304748aa:image.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 태그 구성은 선택 사항이므로 **Next**버튼을 클릭한다.
 
-\</aside>
+
 
 **\[ 검토 및 생성 ]**
 
-![스크린샷 2025-07-16 212027.png](attachment:64a4cfb9-4425-4bc4-9202-0a57e9ce217d:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_212027.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 212027.png" alt=""><figcaption></figcaption></figure>
 
 설정 내용 최종 확인 후 **Create rule**버튼을 클릭한다.
 
-* status - **enabled** 확인 \</aside>
+* status - **enabled** 확인&#x20;
+
+
 
 **\[ 생성된 규칙 확인 ]**
 
-![스크린샷 2025-07-16 211813.png](attachment:53304624-000b-454f-b5d8-f5bf8ef7ebe1:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_211813.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 211813.png" alt=""><figcaption></figcaption></figure>
 
 규칙이 정상적으로 생성되었는지 확인해준다.
-
-\</aside>
 
 </details>
 

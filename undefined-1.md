@@ -359,7 +359,7 @@ Subscription Confirmation 메일의 **Confirm subscription 하이퍼링크**를 
 
 **STEP 1) EventBridge 검색**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBridge 서비스**로 이동한다.
 
@@ -367,7 +367,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **STEP 2) EventBridge 생성**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 **EventBridge** 서비스 화면 오른쪽 상단의 **EventBridge Rule**을 선택하고 **Create rule**버튼을 클릭한다.
 
@@ -375,7 +375,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 상세 규칙 설정 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 규칙 이름, 설명, Event bus 종류, 규칙 유형(이벤트 패턴 기반 or 스케줄 기반) 설정 후 **Next버튼**을 클릭한다.
 
@@ -387,7 +387,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 이벤트 패턴 작성 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 탐지할 이벤트 조건을 설정을 설정하고 **Next**버튼을 클릭한다.
 
