@@ -172,9 +172,7 @@ AWS Config > Rules > Add rules를 클릭한다.
 
 좌측 탭에서 Topic으로 이동 후 **Create topic** 버튼을 클릭한다.
 
-
-
-![스크린샷 2025-07-15 140509.png](attachment:d4db46dd-a041-4a7a-b738-c2d54113fe99:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-15_140509.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-15 140509 (1).png" alt=""><figcaption></figcaption></figure>
 
 * **Type** : Standard
 * **Name** : **`sns-config-alert`**&#x20;
@@ -183,40 +181,30 @@ AWS Config > Rules > Add rules를 클릭한다.
 
 **STEP 3 ) 구독 생성**
 
-![스크린샷 2025-07-15 140539.png](attachment:23adebcb-70f8-43be-9fa9-75f16e1f6260:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-15_140539.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-15 140539.png" alt=""><figcaption></figcaption></figure>
 
 생성된 주제 확인 후 **Create subscription**을 누른다.
 
-\</aside>
+
 
 **\[ 구독 생성 - 세부사항 ]**
 
-![스크린샷 2025-07-15 140634.png](attachment:2d879ffc-b3e9-4f61-9599-3118f60768b0:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-15_140634.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-15 140634.png" alt=""><figcaption></figcaption></figure>
 
 * **Protocol** : Email
-* **Endpoint** : 알람 받을 이메일 주소 \</aside>
+* **Endpoint** : 알람 받을 이메일 주소
+
+
 
 **STEP 4 ) 구독한 이메일 인증**
 
-![image.png](attachment:c7232419-a7c5-4e67-9dbd-8ba70eb94155:image.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 알림 수신을 설정한 Email에 Subscription Confirmation 메일을 전송 받고 \*\*\*\*생성된 구독 확인 후 메일 인증을 해야 한다.
 
-\</aside>
-
-![image.png](attachment:08e19220-de39-43c6-8eb5-007eb582f85d:image.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 **Confirm subscription**를 눌러 인증을 완료하면, SNS 구독이 정상적으로 등록된 것이다.
-
-\</aside>
 
 </details>
 
