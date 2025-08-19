@@ -2,11 +2,11 @@
 
 ***
 
-[#undefined](./#undefined "mention")
+[#undefined](security-group.md#undefined "mention")
 
-[#undefined-3](./#undefined-3 "mention")
+[#undefined-3](security-group.md#undefined-3 "mention")
 
-[#undefined-4](./#undefined-4 "mention")
+[#undefined-4](security-group.md#undefined-4 "mention")
 
 ***
 
@@ -34,7 +34,7 @@
 
 ### \[ **시나리오 전체적인 흐름** ]
 
-<figure><img src="../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
 
 | **AWS Service** | **Service Purpose**                                                                                                                      | **Workbook Usage**                                                                                                                                                               |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -64,4 +64,6 @@
 | EC2 instance     | **`ec2-securitygroup-test`**               | 보안 그룹 변경 이벤트 발생을 유도하기 위한 테스트용 EC2 인스턴스                 |
 | Security Group   | **`securitygroup-test`**                   | 인바운드/아웃바운드 규칙을 변경하여 CloudTrail 이벤트 발생을 유도하는 테스트용 보안 그룹 |
 | Discord 채널       | **`securitygroup-alarm`**                  | CloudTrail 알림 메시지를 수신하고 확인할 수 있는 알림 채널                 |
+
+
 
