@@ -2,7 +2,7 @@
 
 ***
 
-#### 6. Terraform 구현
+### Terraform 구현
 
 > **IaC를 사용하는 이유**
 >
