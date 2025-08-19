@@ -28,19 +28,131 @@ Terraform-code/
 
 **\[ Terraform 구현 코드 ]**
 
-* 리소스명
+{% tabs %}
+{% tab title="main.tf" %}
 
-| 리소스 종류               | 리소스명 설정                         | 목적                                |
-| -------------------- | ------------------------------- | --------------------------------- |
-| **S3 Bucket**        | **`s3-config-logbucket`**       | AWS Config 로그 저장용 버킷              |
-| **AWS Config Role**  | **`iam-config-role`**           | Config 서비스 실행 권한 역할               |
-| **SNS Topic**        | **`sns-config-alert`**          | 퍼블릭 탐지 시 이메일 알림 SNS 토픽            |
-| **Lambda 함수**        | **`lambda-config-function`**    | Config 이벤트 감지 후 Discord 알림 Lambda |
-| **Lambda Role**      | **`iam-lambda-config`**         | Lambda 실행용 역할                     |
-| **EventBridge Rule** | **`eventbridge-config-public`** | 퍼블릭 상태 감지 시 Lambda/SNS 실행 규칙      |
-| **Lambda Policy**    | **`lambda-public-block`**       | 퍼블릭 상태 감지 시 S3 버킷을 자동으로 비공개 처리    |
+{% endtab %}
+
+{% tab title="variables.tf" %}
+
+{% endtab %}
+
+{% tab title="lambda_function.zip (lambda_function.py)" %}
+
+{% endtab %}
+
+{% tab title="Terraform 실행" %}
+**\[ Terraform 실행 코드 ]**
+
+```bash
+terraform init # 초기화
+terraform plan # 설정 검증
+terraform apply # 적용 (실행)
+-------------------------------------------------------
+terraform destroy # 실습 완료 후, 리소스 정리
+```
 
 
+
+**\[ init ]**
+
+```bash
+terraform init
+```
+
+Terraform 프로젝트를 처음 시작할 때 실행하는 명령어로, 작업 디렉토리를 초기화하고 필요한 설정 파일과 실행에 필요한 구성 요소들을 준비해준다. 이후 plan, apply 등의 명령을 정상적으로 사용할 수 있는 상태로 만든다.
+
+
+
+```bash
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+```
+
+위와 같은 메시지가 출력되면, 프로젝트가 초기화되어 Terraform 명령어를 사용할 수 있는 준비가 완료된 것이다.
+
+
+
+**\[ plan ]**
+
+```bash
+terraform plan
+```
+
+Terraform 코드 적용 시, 인프라에 어떤 변경이 발생할지 미리 확인할 수 있는 실행 계획을 보여주는 명령어이다.
+
+
+
+```bash
+Plan: 24 to add, 0 to change, 0 to destroy.
+```
+
+총 24개의 리소스가 새로 생성될 예정이며, 실행 계획이 정상적으로 생성된 상태이다. 이 출력 결과는 적용해도 문제가 없는 준비 완료 상태임을 의미한다.
+
+
+
+**\[ apply ]**
+
+```bash
+terraform apply
+```
+
+terraform apply 명령어는 실행 계획(plan)에 따라 실제로 클라우드 인프라를 생성, 변경, 삭제하는 작업을 수행한다. Plan 단계에서 검토한 내용을 기반으로 실제 인프라에 반영하고자 할 때 사용한다.
+
+
+
+```bash
+Apply complete! Resources: 24 added, 0 changed, 0 destroyed.
+```
+
+위와 같은 메시지가 출력되면, 모든 리소스가 정상적으로 생성되었거나 업데이트되어 인프라 상태가 원하는 대로 적용된 것이다.
+
+
+
+**\[ 이메일 인증 ]**
+
+<figure><img src="../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
+
+terraform apply 이후, 설정한 이메일 주소로 SNS의 Subscription Confirmation 메일이 전송된다. 이메일을 열어 **Confirm subscription** 버튼을 클릭해야 알림 수신이 정상적으로 설정된다.
+
+
+
+<figure><img src="../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
+
+**Confirm subscription**를 눌러 인증을 완료하면, SNS 구독이 정상적으로 등록된 것이다.
+
+
+
+[5. 테스트](https://www.notion.so/5-1feb5a2aa9af80e49d4fc2a03a45f6da?pvs=21)
+
+인증 후 위를 참고하여 테스트를 진행하면 된다.
+
+
+
+**\[ destroy ]**
+
+```bash
+terraform destroy
+```
+
+Terraform으로 생성된 모든 인프라 리소스를 자동으로 삭제하는 명령어이다. **실습 완료 후**에는 해당 명령어로 불필요한 리소스를 정리할 수 있다.
+
+
+
+```bash
+Destroy complete! Resources: 0 destroyed.
+```
+
+위와 같은 메시지가 출력되면, 모든 리소스가 성공적으로 정리되었음을 의미한다.
+{% endtab %}
+{% endtabs %}
 
 <details>
 
@@ -416,7 +528,7 @@ def lambda_handler(event, context):
 
 <details>
 
-<summary>코드 실행</summary>
+<summary>Terraform 실행</summary>
 
 **\[ Terraform 실행 코드 ]**
 
