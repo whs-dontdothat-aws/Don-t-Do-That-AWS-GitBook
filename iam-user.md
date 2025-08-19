@@ -78,9 +78,9 @@
 
 STEP 1) CloudTrail 검색
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 AWS 계정 내에서 발생하는 API 호출 및 활동 내역을 자동으로 기록하고 추적하기 위해 버지니아 리전 선택 후 CloudTrail서비스로 이동한다.\
 해당 리전에 생성된 trail이 있을 경우, 추가 생성 없이 2번 단계 으로 넘어간다.
@@ -336,6 +336,8 @@ STEP 2) 주제 생성
 
 
 
+
+
 <figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (110).png" alt=""><figcaption></figcaption></figure>
 
 * **Type** : Standard(표준)
@@ -412,6 +414,8 @@ Lambda 함수를 주기적으로 실행하기 위해 EventBridge 서비스로 �
 STEP 2) EventBridge 생성
 
 <figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (120).png" alt=""><figcaption></figcaption></figure>
+
+
 
 EventBridge 서비스 화면 오른쪽 상단의 EventBridge Rule을 선택하고 Create rule버튼을 클릭한다.
 
@@ -508,6 +512,69 @@ STEP 3) 생성된 규칙 확인
 <details>
 
 <summary></summary>
+
+> IAM 콘솔에서 사용자를 생성하고 삭제하면서 이벤트를 발생시킨다.
+
+**\[ 탐지 이벤트 안내 ]**
+
+| 이벤트 이름           | 설명         | **탐지 목적**                      |
+| ---------------- | ---------- | ------------------------------ |
+| **`CreateUser`** | IAM 사용자 생성 | **생성 탐지** - 권한 남용, 내부 위협행위 식별  |
+| **`DeleteUser`** | IAM 사용자 삭제 | **삭제 탐지** - 사용자를 없애려는 공격 행위 식별 |
+
+
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+이벤트 테스트를 위해 IAM 콘솔로 이동한다.
+
+
+
+\[CreateUser이벤트 발생 ]
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+좌측 탭에서 Users를 선택 후 Create User 버튼을 클릭한다.
+
+
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+아래 사항 외에는 기본값 그대로 진행한 후 **Create User버튼**을 눌러 테스트 사용자를 생성한다.
+
+* Name : **`IAM-test-user`**
+
+
+
+\[DeleteUser이벤트 발생 ]
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+앞서 만든 사용자를 체크한 후 Delete버튼을 클릭해 삭제한다.
+
+
+
+\[ CloudTrail에서 이벤트 발생 기록 확인 ]
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+IAM 사용자를 생성 하고 삭제하면서 CloudTrail에 CreaterUser, DeleteUser 이벤트가 기록된 것을 확인할 수 있다.
+
+
+
+\[ Email 알림 확인 ]
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+
+
+\[ Discord 알림 확인 ]
+
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 
 
