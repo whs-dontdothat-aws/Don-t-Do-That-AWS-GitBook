@@ -16,6 +16,10 @@
 
 [#undefined-5](./#undefined-5 "mention")
 
+[#undefined-5](../#undefined-5 "mention")
+
+[aws-console-gui.md](aws-console-gui.md "mention")
+
 [terraform-cli.md](terraform-cli.md "mention")
 
 ***
