@@ -228,10 +228,6 @@ AWS Config > Rules > Add rules를 클릭한다.
 
 <summary>3. EventBridge 규칙 생성</summary>
 
-
-
-</details>
-
 **STEP 1) EventBridge 검색**
 
 ![image.png](attachment:3c5b22a1-6487-40f9-aff3-36dc75a71e62:image.png)
@@ -363,7 +359,11 @@ AWS 서비스들이 발생시키는 이벤트를 감지하고, 조건에 따라 
 
 \</aside>
 
-#### 4. Lambda 함수 생성 및 Discord 연동
+</details>
+
+<details>
+
+<summary>4. Lambda 함수 생성 및 Discord 연동</summary>
 
 **STEP 1) Discord 채널 생성 및 WebHook 설정**
 
@@ -484,6 +484,8 @@ Edit environment variables로 이동하여 **Add environment variables** 버튼�
 | DISCORD\_WEBHOOK\_URL | 디스코드 알림용 Webhook URL | [https://discord.com/api/webhooks/\~\~\~](https://discord.com/api/webhooks/~~~) (알림 받을 웹후크 url) |
 | \</aside>             |                      |                                                                                                 |
 
+
+
 **STEP 4) Lambda 코드 소스 편집**
 
 ![스크린샷 2025-07-16 205203.png](attachment:2192b1ca-5ba4-4f21-9261-122a2ed2eddc:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_205203.png)
@@ -567,7 +569,13 @@ EventBridge가 정상적으로 트리거링 되었고 Discord에 알림을 보�
 
 \</aside>
 
-#### 5. 테스트
+
+
+</details>
+
+<details>
+
+<summary>5. 테스트</summary>
 
 > S3에서 Public 버킷을 생성하여 이벤트를 탐지할 수 있다.
 
@@ -693,6 +701,10 @@ EventBridge가 정상적으로 트리거링 되었고 Discord에 알림을 보�
 S3 버킷을 퍼블릭으로 생성하면, aws config에서 `s3-bucket-public-read-prohibited` 규칙이 미준수된 것을 확인할 수 있다.
 
 \</aside>
+
+</details>
+
+
 
 #### 6. 대응 - Public 정책 비활성화
 
