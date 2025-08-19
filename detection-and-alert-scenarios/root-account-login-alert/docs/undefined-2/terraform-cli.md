@@ -31,6 +31,12 @@ Terraform-code/
 
 **\[ Terraform 구현 코드 ]**
 
+{% file src="../.gitbook/assets/Terraform-Code.zip" %}
+
+{% hint style="info" %}
+전체 코드 압축 파일
+{% endhint %}
+
 {% tabs %}
 {% tab title="main.tf" %}
 ```hcl
