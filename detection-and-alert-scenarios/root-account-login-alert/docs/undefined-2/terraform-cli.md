@@ -1,5 +1,7 @@
 # Terraform (CLI)
 
+### **\[ 시나리오 상세 구현 과정 ]**
+
 > **IaC를 사용하는 이유**
 >
 > ***
@@ -226,9 +228,11 @@ terraform destroy # 실습 완료 후, 리소스 정리
 terraform init
 ```
 
+{% hint style="info" %}
 Terraform 프로젝트를 처음 시작할 때 실행하는 명령어로,\
 작업 디렉토리를 초기화하고 필요한 설정 파일과 실행에 필요한 구성 요소들을 준비해준다.\
 이후 plan, apply 등의 명령을 정상적으로 사용할 수 있는 상태로 만든다.
+{% endhint %}
 
 ```bash
 Terraform has been successfully initialized!
@@ -242,8 +246,10 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
+{% hint style="info" %}
 위와 같은 메시지가 출력되면,\
 프로젝트가 초기화되어 Terraform 명령어를 사용할 수 있는 준비가 완료된 것이다.
+{% endhint %}
 
 
 
@@ -253,14 +259,18 @@ commands will detect it and remind you to do so if necessary.
 terraform plan
 ```
 
+{% hint style="info" %}
 Terraform 코드 적용 시,\
 인프라에 어떤 변경이 발생할지 미리 확인할 수 있는 실행 계획을 보여주는 명령어이다.
+{% endhint %}
 
 ```bash
 Plan: 24 to add, 0 to change, 0 to destroy.
 ```
 
+{% hint style="info" %}
 위와 같은 메시지가 출력되면, 24개의 리소스가 새로 생성될 예정이며 실행 계획이 정상적으로 생성된 상태를 의미한다. 이 출력 결과는 적용해도 문제가 없는 준비 완료 상태임을 의미한다.
+{% endhint %}
 
 
 
@@ -270,14 +280,18 @@ Plan: 24 to add, 0 to change, 0 to destroy.
 terraform apply
 ```
 
+{% hint style="info" %}
 terraform apply 명령어는 실행 계획(plan)에 따라 실제로 클라우드 인프라를 생성, 변경, 삭제하는 작업을 수행한다. Plan 단계에서 검토한 내용을 기반으로 실제 인프라에 반영하고자 할 때 사용한다.
+{% endhint %}
 
 ```bash
 Apply complete! Resources: 24 added, 0 changed, 0 destroyed.
 ```
 
+{% hint style="info" %}
 위와 같은 메시지가 출력되면,\
 모든 리소스가 정상적으로 생성되었거나 업데이트되어 인프라 상태가 원하는 대로 적용된 것이다.
+{% endhint %}
 
 
 
@@ -285,12 +299,16 @@ Apply complete! Resources: 24 added, 0 changed, 0 destroyed.
 
 <figure><img src="../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="info" %}
 terraform apply 이후, 설정한 이메일 주소로 SNS의 Subscription Confirmation 메일이 전송된다.\
 이메일을 열어 **Confirm subscription** 버튼을 클릭해야 알림 수신이 정상적으로 설정된다.
+{% endhint %}
 
 <figure><img src="../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="info" %}
 **Confirm subscription**를 눌러 인증을 완료하면, SNS 구독이 정상적으로 등록된 것이다.
+{% endhint %}
 
 
 
@@ -298,7 +316,9 @@ terraform apply 이후, 설정한 이메일 주소로 SNS의 Subscription Confir
 
 {% embed url="https://app.gitbook.com/o/Ovrk2sznEJVoEThBhvLL/s/O10UPNyD9g2PLsfoMELd/undefined-2" %}
 
+{% hint style="info" %}
 인증 후 위를 참고하여 테스트를 진행하면 된다.
+{% endhint %}
 
 
 
@@ -308,13 +328,17 @@ terraform apply 이후, 설정한 이메일 주소로 SNS의 Subscription Confir
 terraform destroy
 ```
 
+{% hint style="info" %}
 Terraform으로 생성된 모든 인프라 리소스를 자동으로 삭제하는 명령어이다.\
 **실습 완료 후**에는 해당 명령어로 불필요한 리소스를 정리할 수 있다.
+{% endhint %}
 
 ```bash
 Destroy complete! Resources: 0 destroyed.
 ```
 
+{% hint style="info" %}
 위와 같은 메시지가 출력되면, 모든 리소스가 성공적으로 정리되었음을 의미한다.
+{% endhint %}
 {% endtab %}
 {% endtabs %}
