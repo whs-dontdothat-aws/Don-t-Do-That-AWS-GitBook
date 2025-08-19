@@ -78,7 +78,9 @@
 
 ### **\[ 1번 시나리오 상세 구현 과정 ]**
 
-#### 1. AWS Config 규칙 생성
+<details>
+
+<summary>1. AWS Config 규칙 생성</summary>
 
 **STEP 1) Config 검색**
 
@@ -94,7 +96,7 @@ S3 퍼블릭 설정을 탐지하는 규칙을 생성하기 위해 Config로 이�
 
 고객 관리형 레코드의 경우, Config 규칙은 고객이 직접 설정한 레코더를 전제로 작동하기 때문에 고객 관리형 레코드 기록이 활성화되어 있어야 한다.
 
-\</aside>
+
 
 <div align="left"><figure><img src="../../../.gitbook/assets/image (3).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
@@ -108,9 +110,7 @@ S3 퍼블릭 설정을 탐지하는 규칙을 생성하기 위해 Config로 이�
 
 **STEP 2) 전송 채널 설정**
 
-![스크린샷 2025-07-15 134451.png](attachment:1c86c11b-0bc5-4802-a5f2-a0175472a489:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-15_134451.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-15 134451 (1).png" alt=""><figcaption></figcaption></figure>
 
 * **Data retention period:** Retain AWS Config data for 7 years(2557 days)
 * **Amazon S3 bucket:** Create a bucket
@@ -118,51 +118,45 @@ S3 퍼블릭 설정을 탐지하는 규칙을 생성하기 위해 Config로 이�
 
 해당 항목을 지정하고 **Save**버튼을 클릭한다.
 
-\</aside>
+
 
 **STEP 3 ) Config 규칙 추가**
 
-![스크린샷 2025-07-15 134933.png](attachment:c7d24757-c0c9-4117-854a-4e5df15f7fb6:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-15_134933.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-15 134933.png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+AWS Config > Rules > Add rules를 클릭한다.
 
-AWS Config> Rules> Add rules를 클릭한다.
 
-\</aside>
 
-![스크린샷 2025-07-15 135045.png](attachment:75622a4b-96b4-4211-a54b-aee728ecbdce:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-15_135045.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-15 135045.png" alt=""><figcaption></figcaption></figure>
 
 * **Select rule type:** Add AWS managed rule
-* **`s3-bucket-public-read-prohibited`** 필터링 후 Next 클릭한다. \</aside>
+* **`s3-bucket-public-read-prohibited`** 필터링 후 Next 클릭한다.&#x20;
 
-![스크린샷 2025-07-15 135140.png](attachment:16c46350-851c-44ef-901f-4380c535b112:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-15_135140.png)
 
-![스크린샷 2025-07-15 135157.png](attachment:e16d5039-0657-4c32-abf8-6ec4c9a4459b:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-15_135157.png)
 
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-15 135140.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/스크린샷 2025-07-15 135157.png" alt=""><figcaption></figcaption></figure>
 
 * **Scope of changes** : Resources
 * **Resource category** : All resource categories
 * **Resource type:** Multiple selected
-* **Frequency:** 24 hours \</aside>
+* **Frequency:** 24 hours&#x20;
 
-![스크린샷 2025-07-15 135936.png](attachment:9dd282b9-7999-4fde-a293-0c5769c93575:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-15_135936.png)
 
-\<aside>
+
+<figure><img src=".gitbook/assets/스크린샷 2025-07-15 135936.png" alt=""><figcaption></figcaption></figure>
 
 **`s3-bucket-public-write-prohibited`** 도 동일한 방식으로 진행하며 다음과 같이 규칙이 생성된 결과를 볼 수 있다. 실습이 끝난 후에는 평가당 $0.001 청구되므로 빈도는 최소화하고 필요 없는 규칙은 삭제하는 것이 좋다.
 
-| 규칙 이름                                          | 개념                                                      |
-| ---------------------------------------------- | ------------------------------------------------------- |
-| `s3-bucket-public-read-prohibited`             | S3 버킷이 **인터넷에 공개적으로 읽기 가능**한 상태인지 감지하는 AWS Config 규칙이다. |
-| 즉, 누구나 객체를 다운로드할 수 있는 상태를 비준수(위험)로 판단한다.       |                                                         |
-| `s3-bucket-public-write-prohibited`            | S3 버킷이 **인터넷에 공개적으로 쓰기 가능**한 상태인지 감지하는 규칙이다.            |
-| 즉, 누구나 객체를 업로드하거나 덮어쓸 수 있는 상태를 **비정상으로 간주한다.** |                                                         |
-| \</aside>                                      |                                                         |
+<table><thead><tr><th width="167.640625">규칙 이름</th><th>개념</th></tr></thead><tbody><tr><td><code>s3-bucket-public-read-prohibited</code></td><td>S3 버킷이 <strong>인터넷에 공개적으로 읽기 가능</strong>한 상태인지 감지하는 AWS Config 규칙이다.<br>즉, 누구나 객체를 다운로드할 수 있는 상태를 비준수(위험)로 판단한다.</td></tr><tr><td><code>s3-bucket-public-write-prohibited</code></td><td>S3 버킷이 <strong>인터넷에 공개적으로 쓰기 가능</strong>한 상태인지 감지하는 규칙이다.<br>즉, 누구나 객체를 업로드하거나 덮어쓸 수 있는 상태를 <strong>비정상으로 간주한다.</strong></td></tr></tbody></table>
 
-#### 2. SNS 주제 생성 및 구독 설정
+</details>
+
+<details>
+
+<summary>2. SNS 주제 생성 및 구독 설정</summary>
 
 **STEP 1) SNS 검색**
 
@@ -228,7 +222,15 @@ AWS Config> Rules> Add rules를 클릭한다.
 
 \</aside>
 
-#### 3. EventBridge 규칙 생성
+</details>
+
+<details>
+
+<summary>3. EventBridge 규칙 생성</summary>
+
+
+
+</details>
 
 **STEP 1) EventBridge 검색**
 

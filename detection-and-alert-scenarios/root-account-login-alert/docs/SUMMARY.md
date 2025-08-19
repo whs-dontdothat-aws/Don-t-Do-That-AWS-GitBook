@@ -1,6 +1,7 @@
 # Table of contents
 
 * [S3 퍼블릭 버킷 생성 탐지 및 알람](README.md)
+  * [Terraform](s3/terraform.md)
 * [루트 계정 로그인 알림](../../../undefined.md)
 * [AWS Cloudtrail 비활성화 탐지](../../../aws-cloudtrail.md)
   * [Terraform](aws-cloudtrail/terraform.md)
