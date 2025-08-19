@@ -160,30 +160,26 @@ AWS Config > Rules > Add rules를 클릭한다.
 
 **STEP 1) SNS 검색**
 
-![image.png](attachment:a156593c-8365-4944-b5e2-0665f7575d3a:740c9ad6-36bd-4ec2-ab70-990ab79e2114.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
 
 알람을 전송 받을 주제 및 구독을 생성하기 위해 AWS 콘솔에서 **SNS 서비스**로 이동한다.
 
-\</aside>
+
 
 **STEP 2) 주제 생성**
 
-![스크린샷 2025-07-15 140416.png](attachment:bb970648-113c-4c98-9c0b-8938ebc11580:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-15_140416.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-15 140416 (2).png" alt=""><figcaption></figcaption></figure>
 
 좌측 탭에서 Topic으로 이동 후 **Create topic** 버튼을 클릭한다.
 
-\</aside>
+
 
 ![스크린샷 2025-07-15 140509.png](attachment:d4db46dd-a041-4a7a-b738-c2d54113fe99:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-15_140509.png)
 
-\<aside>
-
 * **Type** : Standard
-* **Name** : **`sns-config-alert`** \</aside>
+* **Name** : **`sns-config-alert`**&#x20;
+
+
 
 **STEP 3 ) 구독 생성**
 
@@ -704,9 +700,9 @@ S3 버킷을 퍼블릭으로 생성하면, aws config에서 `s3-bucket-public-re
 
 </details>
 
+<details>
 
-
-#### 6. 대응 - Public 정책 비활성화
+<summary>6. 대응 - Public 정책 비활성화</summary>
 
 **\[lambda 활용하여 Public를 비활성화]**
 
@@ -926,4 +922,5 @@ CloudShell 접속 후 다음 명령어들을 입력하여 대응 테스트용 �
 
 **\[ Discord 알림 확인 ]**
 
-![스크린샷 2025-07-23 153519.png](attachment:54668049-053a-4d37-a5d7-a570b627d6e7:47705e15-36a5-496c-9357-b399a0985bc0.png)
+</details>
+
