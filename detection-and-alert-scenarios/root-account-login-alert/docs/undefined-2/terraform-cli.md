@@ -314,7 +314,7 @@ terraform apply 이후, 설정한 이메일 주소로 SNS의 Subscription Confir
 
 **\[ 테스트 진행 ]**
 
-{% embed url="https://app.gitbook.com/o/Ovrk2sznEJVoEThBhvLL/s/O10UPNyD9g2PLsfoMELd/undefined-2" %}
+{% embed url="https://app.gitbook.com/o/Ovrk2sznEJVoEThBhvLL/s/O10UPNyD9g2PLsfoMELd/~/changes/85/undefined-2/aws-console-gui#id-5" %}
 
 {% hint style="info" %}
 인증 후 위를 참고하여 테스트를 진행하면 된다.
