@@ -534,7 +534,7 @@ Destroy complete! Resources: 0 destroyed.
 
 <summary>오류 발생 시 확인</summary>
 
-<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 terraform import aws_iam_role.config_service_role AWSConfigServiceRole

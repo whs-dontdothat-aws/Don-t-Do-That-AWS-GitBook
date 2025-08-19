@@ -81,7 +81,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 <details>
 
-<summary>2. SNS 주제 생성 및 구독 설정</summary>
+<summary>2. <strong>SNS 주제 생성 및 구독 설정</strong></summary>
 
 **STEP 1) SNS 검색**
 
@@ -155,7 +155,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 <details>
 
-<summary>3. Lambda 함수 생성 및 Discord 연동</summary>
+<summary><strong>3. Lambda 함수 생성 및 Discord 연동</strong></summary>
 
 **STEP 1) Discord 채널 생성 및 WebHook 설정**
 
@@ -175,7 +175,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 채널 편집 ]**
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 위와 같이 생성된 채널에서 **채널 편집**을 클릭한다.
@@ -185,7 +185,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 웹후크 연동 ]**
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 왼쪽 상단의 설정 목록에서 **연동 → 웹후크 만들기**를 클릭하여 웹후크 봇을 만들어 준다.
@@ -195,7 +195,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 웹후크 URL 복사 ]**
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **웹후크 URL 복사** 버튼을 클릭해 Lambda에서 사용할 URL을 복사한다.
@@ -210,7 +210,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **STEP 2) Lambda 함수 생성**
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 알람을 발송할 함수를 만들기 위해 AWS 콘솔에서 **Lambda 서비스**로 이동한다.
@@ -220,7 +220,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 함수 생성 ]**
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클릭한다.
@@ -230,7 +230,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 함수 생성 - 세부 사항 ]**
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 함수 이름, 런타임 및 아키텍처를 지정하고 **Create function** 버튼을 클릭한다.
@@ -247,7 +247,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 생성한 함수 확인 ]**
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 정상적으로 Lambda함수가 생성되었는지 확인해준다.
@@ -257,7 +257,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **STEP 3) 환경 변수 편집**
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 이후 Configuration → Environment variables로 들어가서 **Edit** 버튼을 클릭한다.
@@ -267,7 +267,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 환경 변수 추가 ]**
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Edit environment variables로 이동하여 **Add environment variables** 버튼을 클릭한다.
@@ -277,7 +277,7 @@ Edit environment variables로 이동하여 **Add environment variables** 버튼�
 
 **\[ 환경 변수에 키와 값 추가 ]**
 
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **Key, Value**를 다음과 같이 추가한 이후 **Save** 버튼을 눌러 환경 변수를 추가 해준다.
@@ -292,7 +292,7 @@ Edit environment variables로 이동하여 **Add environment variables** 버튼�
 
 **STEP 4) Lambda 코드 소스 편집**
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Code탭에서 **Lambda python 코드**를 작성 후 **Deploy**버튼을 클릭하여 배포해 준다.
@@ -405,11 +405,11 @@ SNS가 정상적으로 트리거링 되었고 Discord에 알림을 보내기 위
 
 <details>
 
-<summary>4. EventBridge 규칙 생성</summary>
+<summary><strong>4. EventBridge 규칙 생성</strong></summary>
 
 **STEP 1) EventBridge 검색**
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBridge 서비스**로 이동한다.
@@ -419,7 +419,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **STEP 2) EventBridge 생성**
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **Create rule** 버튼을 클릭해서 새 EventBridge 규칙을 생성한다.
@@ -429,7 +429,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 규칙 세부 정보 정의 ]**
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 * **Name** : <mark style="color:$danger;">**`eventbridge-ebs-detect-snapshot`**</mark>
@@ -442,7 +442,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[** **이벤트 패턴 작성 ]**
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 탐지할 이벤트 조건을 설정을 설정하고 **Next** 버튼을 클릭한다.
@@ -478,7 +478,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 대상 선택 - SNS topic ]**
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 SNS 주제 선택 후 lambda 함수를 대상으로 추가하기 위해 **Add another target**을 클릭한다.
@@ -495,7 +495,7 @@ SNS 주제 선택 후 lambda 함수를 대상으로 추가하기 위해 **Add an
 
 **\[ 대상 선택 - Lambda function ]**
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 이벤트가 감지되었을 때 실행할 대상들을 지정하고 **Next**버튼을 클릭한다.
@@ -508,7 +508,7 @@ SNS 주제 선택 후 lambda 함수를 대상으로 추가하기 위해 **Add an
 * **Fuction :** 미리 만들어 둔 lambda function 선택
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 태그 구성은 선택 사항이므로 **Next**버튼을 클릭한다.
@@ -518,7 +518,7 @@ SNS 주제 선택 후 lambda 함수를 대상으로 추가하기 위해 **Add an
 
 **\[** **검토** **및 생성 ]**
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 설정 내용 최종 확인 후 **Create rule** 버튼을 클릭한다.
@@ -532,7 +532,7 @@ SNS 주제 선택 후 lambda 함수를 대상으로 추가하기 위해 **Add an
 
 **STEP 3)** **생성된 규칙 확인**
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 규칙이 정상적으로 생성되었는지 확인해준다.
@@ -540,155 +540,150 @@ SNS 주제 선택 후 lambda 함수를 대상으로 추가하기 위해 **Add an
 
 </details>
 
-![스크린샷 2025-07-23 오전 5.54.14.png](attachment:8078676d-0512-47e1-afd6-b34b0744ac2c:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.54.14.png)
+<details>
 
-\<aside>
-
-*
-
-![스크린샷 2025-07-23 오전 5.57.36.png](attachment:8bdf2863-022d-4b0d-95ed-785a98d981c5:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.57.36.png)
-
-\<aside>
-
-\</aside>
-
-#### 5. 테스트
+<summary><strong>5. 테스트</strong></summary>
 
 > 테스트를 위한 EC2를 생성하여 인스턴스를 생성, 공유, 삭제 할 수 있다.
 
+
+
 **\[ 탐지 이벤트 안내 ]**
 
-| 이벤트 이름                    | 설명                   | 탐지목적                                                     |
-| ------------------------- | -------------------- | -------------------------------------------------------- |
-| `CreateSnapshot`          | EBS 볼륨 스냅샷 생성 API    | **데이터 무단 복제 시도 탐지** – 민감 정보 포함 볼륨을 외부로 유출하기 위한 스냅샷 생성 식별 |
-| `DeleteSnapshot`          | 기존 스냅샷 삭제 API        | **증거 삭제 시도 탐지** – 기존 백업 또는 유출 흔적을 지우려는 행위 식별             |
-| `ModifySnapshotAttribute` | EBS 스냅샷 공유 설정 변경 API | **스냅샷 외부 공유 시도 탐지** – 타 계정 혹은 공개 설정을 통한 데이터 유출 가능성 식별    |
+| 이벤트 이름                                                        | 설명                   | 탐지목적                                                     |
+| ------------------------------------------------------------- | -------------------- | -------------------------------------------------------- |
+| <mark style="color:$danger;">`CreateSnapshot`</mark>          | EBS 볼륨 스냅샷 생성 API    | **데이터 무단 복제 시도 탐지** – 민감 정보 포함 볼륨을 외부로 유출하기 위한 스냅샷 생성 식별 |
+| <mark style="color:$danger;">`DeleteSnapshot`</mark>          | 기존 스냅샷 삭제 API        | **증거 삭제 시도 탐지** – 기존 백업 또는 유출 흔적을 지우려는 행위 식별             |
+| <mark style="color:$danger;">`ModifySnapshotAttribute`</mark> | EBS 스냅샷 공유 설정 변경 API | **스냅샷 외부 공유 시도 탐지** – 타 계정 혹은 공개 설정을 통한 데이터 유출 가능성 식별    |
+
+
 
 **\[ EC2 인스턴스 생성 ]**
 
-![스크린샷 2025-07-22 오전 2.11.28.png](attachment:6b79b214-36f3-4638-8aef-825f660affe6:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_2.11.28.png)
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
+{% hint style="info" %}
 이벤트 테스트를 위해 EC2로 이동한다.
+{% endhint %}
 
-\</aside>
 
-![스크린샷 2025-07-22 오전 2.21.00.png](attachment:48a3d310-e95d-4dfa-b7f2-06b629cadd25:f383a41c-4bdc-45b1-ab8c-3b71404b3f39.png)
 
-![스크린샷 2025-07-23 오전 6.05.00.png](attachment:7cbb6822-bca9-4d2c-b786-e290c11c57b2:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_6.05.00.png)
+**\[ 인스턴스 생성 - 세부사항 ]**
 
-\<aside>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
 임의의 EC2 인스턴스를 생성해 테스트를 진행한다. 아래 사항 외에는 기본값 그대로 진행한다.
 
-**Name** : `ec2-ebs-test`
 
-\</aside>
 
-![스크린샷 2025-07-22 오전 2.17.58.png](attachment:fc18d063-30a6-4c77-b2b2-8d14ad2af177:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_2.17.58.png)
+* **Name** : <mark style="color:$danger;">**`ec2-ebs-test`**</mark>
+* **Key Pair :** Proceed without key pair
+{% endhint %}
 
-\<aside>
 
-키페어 없이 진행한다.
-
-\</aside>
 
 **\[ 인스턴스 생성 확인 ]**
 
-![스크린샷 2025-07-22 오전 2.19.38.png](attachment:a67f6ee6-709a-4417-8245-7b1f5d7ddfa3:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_2.19.38.png)
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-**\[** `CreateSnapshot`**이벤트 발생 ]**
 
-![스크린샷 2025-07-22 오전 2.22.19.png](attachment:c92dda6b-763b-4a7d-847c-7fa301650aad:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_2.22.19.png)
 
-![스크린샷 2025-07-22 오전 2.24.07.png](attachment:761550bd-f41e-47c8-819a-cb44ef5b81d7:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_2.24.07.png)
+**\[** <mark style="color:$danger;">`CreateSnapshot`</mark>**이벤트 발생 ]**
 
-\<aside>
+<div align="left"><figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure></div>
 
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
 EC2 → Elastic Block Store → Snapshots → Create snapshot
 
 스냅샷을 생성하기 위해 **Create snapshot**을 클릭한다.
+{% endhint %}
 
-\</aside>
+
 
 **\[ 세부 설정 ]**
 
-![스크린샷 2025-07-22 오전 2.26.12.png](attachment:de3f7836-712e-4431-8dfb-504184a21dbb:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_2.26.12.png)
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
+{% hint style="info" %}
 * **Source** : Resource type - Volume
-* **Volume ID** : EC2 인스턴스 생성할 때 만들어진 볼륨 선택 \</aside>
+* **Volume ID** : EC2 인스턴스 생성할 때 만들어진 볼륨 선택&#x20;
+{% endhint %}
 
-**\[** `ModifySnapshotAttribute`**이벤트 발생 ]**
 
-**STEP 1) 스냅샷 선택**
 
-![스크린샷 2025-07-22 오전 2.37.36.png](attachment:ed8366b6-bac7-432f-868f-cd5f240a44d6:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_2.37.36.png)
+**\[** <mark style="color:$danger;">`ModifySnapshotAttribute`</mark>**이벤트 발생 ]**
 
-\<aside>
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="info" %}
 생성한 **스냅샷**을 클릭한다.
+{% endhint %}
 
-\</aside>
 
-**STEP 2) 권한 공유**
 
-![스크린샷 2025-07-22 오전 2.49.35.png](attachment:1eece7d4-b344-4527-a7f1-a65f386c31eb:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_2.49.35.png)
+**\[ 권한 공유 ]**
 
-\<aside>
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="info" %}
 **Modify permission** 버튼을 클릭한다.
 
 **Add account ID**도 선택 가능하다.
+{% endhint %}
 
-\</aside>
 
-**STEP 3) 권한 수정 - 계정 추가**
 
-![스크린샷 2025-07-22 오전 2.53.10.png](attachment:91039694-426c-449d-bc1c-923461062be9:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_2.53.10.png)
+**\[ 권한 수정 - 계정 추가 ]**
 
-\<aside>
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="info" %}
 권한 수정에서 **Add account** 버튼을 클릭한다.
+{% endhint %}
 
-\</aside>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
-![스크린샷 2025-07-22 오전 2.54.37.png](attachment:f4cbb27e-c333-4042-a58e-7d8ccbe0698d:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_2.54.37.png)
-
-\<aside>
-
+{% hint style="info" %}
 **AWS 계정 ID**는 **12자리** 아무 숫자를 넣어준다.
+{% endhint %}
 
-\</aside>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
-![스크린샷 2025-07-22 오전 2.55.21.png](attachment:353feb42-44e4-4c71-8aec-8b3dc48ac4d3:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_2.55.21.png)
-
-\<aside>
-
+{% hint style="info" %}
 **Modify permission**을 누르면 공유 계정 추가 된다. 외부 계정 공유 시, Discord와 이메일로 알림이 간다.
+{% endhint %}
 
-\</aside>
 
-**\[** `DeleteSnapshot`**이벤트 발생 ]**
 
-![스크린샷 2025-07-22 오전 3.01.03.png](attachment:4fea690f-429b-45d1-81c2-8faa7de6d541:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_3.01.03.png)
+**\[** <mark style="color:$danger;">`DeleteSnapshot`</mark>**이벤트 발생 ]**
 
-![스크린샷 2025-07-22 오전 3.03.24.png](attachment:4683b39f-8a13-415a-b8be-54a2b4c3db3d:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_3.03.24.png)
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
-삭제할 스냅샷을 선택하고, **Action**을 누른 다음 **Delete snapshot**을 클릭한다. 삭제 시, Discord와 이메일로 알림이 간다.
+{% hint style="info" %}
+삭제할 스냅샷을 선택하고, **Action**을 누른 다음 **Delete snapshot**을 클릭한다.
 
-\</aside>
+삭제 시, Discord와 이메일로 알림이 간다.
+{% endhint %}
 
-***
+
 
 **\[ Email 알림 확인 ]**
 
-![스크린샷 2025-07-23 오전 6.37.11.png](attachment:21c0155f-0d0b-43b5-88a9-fcf17c4c742e:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_6.37.11.png)
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
+
 
 **\[ Discord 알림 확인 ]**
 
-![스크린샷 2025-07-23 오전 6.50.06.png](attachment:d614e5c5-11a9-423a-b379-af9c93deb9b0:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_6.50.06.png)
+<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+
+</details>
