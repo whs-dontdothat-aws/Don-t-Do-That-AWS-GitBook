@@ -86,7 +86,7 @@ AWS 계정 내에서 발생하는 API 호출 및 활동 내역을 자동으로 �
 
 **STEP 2 ) CloudTrail 생성**
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Create trail 버튼을 클릭해 사용할 추적을 생성한다.
 
@@ -94,7 +94,7 @@ Create trail 버튼을 클릭해 사용할 추적을 생성한다.
 
 **\[ 추적 속성 선택 ]**
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
 
 CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 클릭한다.
 
@@ -365,7 +365,7 @@ Subscription Confirmation 메일의 **Confirm subscription 하이퍼링크**를 
 
 **STEP 1) EventBridge 검색**
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBridge 서비스**로 이동한다.
 
@@ -393,7 +393,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 이벤트 패턴 작성 ]**
 
-<figure><img src="../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 탐지할 이벤트 조건을 설정을 설정하고 **Next**버튼을 클릭한다.
 
