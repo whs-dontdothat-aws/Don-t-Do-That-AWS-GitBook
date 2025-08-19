@@ -628,23 +628,19 @@ S3 버킷을 **퍼블릭**으로 생성하면, aws config에서 `s3-bucket-publi
 
 **\[lambda 활용하여 Public를 비활성화]**
 
-![스크린샷 2025-07-18 150848.png](attachment:73b44d60-9b30-4de3-8937-b666afc4cdfa:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_150848.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 150848.png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+**IAM > Roles > 생성한 lambda 함수** 선택한다.
 
-IAM> Roles> 생성한 lambda 함수 선택한다.
 
-\</aside>
 
-![스크린샷 2025-07-18 151024.png](attachment:414e4312-007c-4a16-9e70-4691a28aab55:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_151024.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 151024.png" alt=""><figcaption></figcaption></figure>
 
-![스크린샷 2025-07-18 153818.png](attachment:92074174-80de-44c8-b971-1b94b5420d4b:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_153818.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 153818.png" alt=""><figcaption></figcaption></figure>
 
-![스크린샷 2025-07-18 151611.png](attachment:0d784b3e-b9bd-40b7-b150-1eefabd2350f:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_151611.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 151611.png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
-Permissions> Create inline policy 클릭하여
+**Permissions > Create inline policy** 클릭하여
 
 ```json
 {
@@ -669,11 +665,11 @@ Permissions> Create inline policy 클릭하여
 
 해당 인라인 정책을 입력한다.
 
-* Policy name: `lambda-public-block` 입력 후 Create policy 클릭한다. \</aside>
+* Policy name: `lambda-public-block` 입력 후 Create policy 클릭한다.&#x20;
 
-![스크린샷 2025-07-18 155144.png](attachment:0db01a72-b97c-4ade-bb87-cd0a98bb84f1:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_155144.png)
 
-\<aside>
+
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 155144.png" alt=""><figcaption></figcaption></figure>
 
 Lambda에 다음과 같은 코드로 수정하고 Deploy한다.
 
@@ -695,7 +691,7 @@ def lambda_handler(event, context):
     compliance = event.get("detail", {}).get("newEvaluationResult", {}).get("complianceType", "UNKNOWN")
     annotation = event.get("detail", {}).get("newEvaluationResult", {}).get("annotation", "No annotation")
     
-    # ✅ 계정 ID 수정 (accountId → account)
+    # 계정 ID 수정 (accountId → account)
     aws_account_id = event.get("account", "Unknown Account")
     aws_region = event.get("region", "Unknown Region")
 
@@ -774,13 +770,13 @@ def lambda_handler(event, context):
 
 ```
 
-\</aside>
+
 
 **\[대응 test]**
 
-[5. 테스트 ](https://www.notion.so/5-232b5a2aa9af80139344d2b14b26cef0?pvs=21)방법으로 진행할 수도 있지만, Cloudshell을 사용하면 명령어 입력 만으로 테스트를 진행할 수 있기 때문에 해당 방법으로 진행하였다.
+[5. 테스트 ](https://www.notion.so/5-232b5a2aa9af80139344d2b14b26cef0?pvs=21)방법으로 진행할 수도 있지만, **Cloudshell**을 사용하면 명령어 입력 만으로 테스트를 진행할 수 있기 때문에 해당 방법으로 진행하였다.
 
-![스크린샷 2025-07-18 160340.png](attachment:91ee26b6-8146-40e2-828e-7141f69115b9:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_160340.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 160340.png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 #테스트 버킷 새로 생성
@@ -820,29 +816,25 @@ aws s3api put-bucket-policy \\
   }'
 ```
 
-\<aside>
-
 CloudShell 접속 후 다음 명령어들을 입력하여 대응 테스트용 버킷을 생성한다.
 
-\</aside>
 
-![스크린샷 2025-07-18 160005.png](attachment:3d6e7ecf-4bd7-4fae-a62e-38a679e46915:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_160005.png)
 
-![스크린샷 2025-07-18 155749.png](attachment:8e06348f-1664-4df8-9096-662f8cea9cc2:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_155749.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 160005.png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 155749.png" alt=""><figcaption></figcaption></figure>
 
-생성된 버킷( s3-public-bucket-test123)에 들어가면 다음과 같이 퍼블릭 액세스 차단이 활성화되고, 버킷 정책이 제거된 것을 확인할 수 있다.
-
-\</aside>
+생성된 버킷( s3-public-bucket-test123)에 들어가면 다음과 같이 **퍼블릭 액세스 차단**이 활성화되고, **버킷 정책이 제거**된 것을 확인할 수 있다.
 
 ***
 
 **\[ Email 알림 확인 ]**
 
-![스크린샷 2025-07-23 153050.png](attachment:acc4b6a0-9b7f-4e1b-8683-0df71942766a:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-23_153050.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-23 153050.png" alt=""><figcaption></figcaption></figure>
 
 **\[ Discord 알림 확인 ]**
+
+<figure><img src=".gitbook/assets/스크린샷 2025-07-23 153519.png" alt="" width="474"><figcaption></figcaption></figure>
 
 </details>
 
