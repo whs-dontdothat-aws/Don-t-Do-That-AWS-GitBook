@@ -8,7 +8,7 @@
 * [Security group의 정책 변경 탐지](../../../security-group.md)
   * [Console](security-group/console.md)
   * [Terraform](security-group/terraform.md)
-* [새로운 IAM User의 생성, 삭제 탐지](../../../iam-user.md)
+* [새로운 IAM User의 생성, 삭제 탐지](iam-user/README.md)
   * [Terraform](iam-user/terraform.md)
 * [로그 그룹 삭제 또는 변경 탐지](undefined-1/README.md)
   * [Terraform](undefined-1/terraform.md)
