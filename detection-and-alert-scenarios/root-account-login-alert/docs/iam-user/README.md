@@ -91,9 +91,9 @@
 
 STEP 1) CloudTrail 검색
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 AWS 계정 내에서 발생하는 API 호출 및 활동 내역을 자동으로 기록하고 추적하기 위해 버지니아 리전 선택 후 CloudTrail서비스로 이동한다.\
 해당 리전에 생성된 trail이 있을 경우, 추가 생성 없이 2번 단계 으로 넘어간다.
@@ -532,7 +532,7 @@ STEP 3) 생성된 규칙 확인
 
 
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 이벤트 테스트를 위해 IAM 콘솔로 이동한다.
 
@@ -540,15 +540,15 @@ STEP 3) 생성된 규칙 확인
 
 \[CreateUser이벤트 발생 ]
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 좌측 탭에서 Users를 선택 후 Create User 버튼을 클릭한다.
 
 
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 아래 사항 외에는 기본값 그대로 진행한 후 **Create User버튼**을 눌러 테스트 사용자를 생성한다.
 
@@ -558,7 +558,7 @@ STEP 3) 생성된 규칙 확인
 
 \[DeleteUser이벤트 발생 ]
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 앞서 만든 사용자를 체크한 후 Delete버튼을 클릭해 삭제한다.
 
@@ -566,9 +566,9 @@ STEP 3) 생성된 규칙 확인
 
 \[ CloudTrail에서 이벤트 발생 기록 확인 ]
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 IAM 사용자를 생성 하고 삭제하면서 CloudTrail에 CreaterUser, DeleteUser 이벤트가 기록된 것을 확인할 수 있다.
 
@@ -576,13 +576,13 @@ IAM 사용자를 생성 하고 삭제하면서 CloudTrail에 CreaterUser, Delete
 
 \[ Email 알림 확인 ]
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
 \[ Discord 알림 확인 ]
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 

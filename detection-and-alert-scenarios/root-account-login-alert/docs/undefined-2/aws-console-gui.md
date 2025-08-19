@@ -161,7 +161,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 채널 만들기 ]**
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 이벤트에 관한 알림을 수신 할 채널을 만들어준다.
@@ -175,7 +175,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 채널 편집 ]**
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 위와 같이 생성된 채널에서 **채널 편집**을 클릭한다.
@@ -185,7 +185,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 웹후크 연동 ]**
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 왼쪽 상단의 설정 목록에서 **연동 → 웹후크 만들기**를 클릭하여 웹후크 봇을 만들어 준다.
@@ -195,7 +195,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 웹후크 URL 복사 ]**
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **웹후크 URL 복사** 버튼을 클릭해 Lambda에서 사용할 URL을 복사한다.
@@ -210,89 +210,93 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **STEP 2) Lambda 함수 생성**
 
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-
-</details>
-
+{% hint style="info" %}
 알람을 발송할 함수를 만들기 위해 AWS 콘솔에서 **Lambda 서비스**로 이동한다.
+{% endhint %}
 
-\</aside>
 
-![image.png](attachment:f1eebfa6-6882-4e1c-b3b2-81751385349b:image.png)
-
-\<aside>
-
-Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클릭한다.
-
-\</aside>
 
 **\[ 함수 생성 ]**
 
-![스크린샷 2025-07-23 오전 5.16.48.png](attachment:332fdb0b-e32b-4a7e-82c0-8a992265d111:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.16.48.png)
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+{% hint style="info" %}
+Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클릭한다.
+{% endhint %}
 
+
+
+**\[ 함수 생성 - 세부 사항 ]**
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
 함수 이름, 런타임 및 아키텍처를 지정하고 **Create function** 버튼을 클릭한다.
 
+
+
 * **Author from scratch** 선택
-* **Function name** : **`lambda-ebs-snapshot-alarm`**
+* **Function name** : <mark style="color:$danger;">**`lambda-ebs-snapshot-alarm`**</mark>
 * **Runtime** : Python 3.13
-* **Architecture** : x86\_64 \</aside>
+* **Architecture** : x86\_64
+{% endhint %}
+
+
 
 **\[ 생성한 함수 확인 ]**
 
-![스크린샷 2025-07-23 오전 5.20.27.png](attachment:06886af7-a3cd-45c2-bff0-f1b3f02f7cd9:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.20.27.png)
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
+{% hint style="info" %}
 정상적으로 Lambda함수가 생성되었는지 확인해준다.
+{% endhint %}
 
-\</aside>
+
 
 **STEP 3) 환경 변수 편집**
 
-![image.png](attachment:63da8f49-6998-4271-8eba-cca6ae0054cf:09cf90a2-36a6-4dde-8cdc-a4b633e0670f.png)
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
+{% hint style="info" %}
 이후 Configuration → Environment variables로 들어가서 **Edit** 버튼을 클릭한다.
+{% endhint %}
 
-\</aside>
+
 
 **\[ 환경 변수 추가 ]**
 
-![image.png](attachment:efc2a473-f143-4377-8257-7298a5136e3a:image.png)
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
+{% hint style="info" %}
 Edit environment variables로 이동하여 **Add environment variables** 버튼을 클릭한다.
+{% endhint %}
 
-\</aside>
+
 
 **\[ 환경 변수에 키와 값 추가 ]**
 
-![image.png](attachment:7d1ca46a-00c3-41d0-9b36-065877dc8668:image.png)
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+{% hint style="info" %}
+**Key, Value**를 다음과 같이 추가한 이후 **Save** 버튼을 눌러 환경 변수를 추가 해준다.
 
-**Key, Value**를 \*\*\*\*다음과 같이 추가한 이후 **Save**버튼을 눌러 환경 변수를 추가해 준다.
 
-* **Key, Value는 표를 참고**
 
-| Key                   | **용도/설명**            | Value                                                                                           |
-| --------------------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| DISCORD\_WEBHOOK\_URL | 디스코드 알림용 Webhook URL | [https://discord.com/api/webhooks/\~\~\~](https://discord.com/api/webhooks/~~~) (알림 받을 웹후크 url) |
-| \</aside>             |                      |                                                                                                 |
+* **Key : DISCORD\_WEBHOOK\_URL**
+* **Value : (알림 받을 웹후크 url)**
+{% endhint %}
+
+
 
 **STEP 4) Lambda 코드 소스 편집**
 
-![스크린샷 2025-07-23 오전 5.27.49.png](attachment:6739cb4e-2686-49f8-83c8-74bcd9020aa1:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.27.49.png)
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
+{% hint style="info" %}
 Code탭에서 **Lambda python 코드**를 작성 후 **Deploy**버튼을 클릭하여 배포해 준다.
-
-\</aside>
+{% endhint %}
 
 ```python
 import json
@@ -362,36 +366,42 @@ def lambda_handler(event, context):
 
 ```
 
+
+
 **STEP 5) lambda 트리거 추가**
 
-![스크린샷 2025-07-23 오전 5.30.56.png](attachment:3455d52b-4877-4cdc-a00d-7df57ed4669b:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.30.56.png)
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+{% hint style="info" %}
+생성한 Lambda함수의 다이어그램 왼쪽 하단의 **Add trigger** 버튼을 클릭한다.
+{% endhint %}
 
-생성한 Lambda함수의 다이어그램 왼쪽 하단의 **Add trigger**버튼을 클릭한다.
 
-\</aside>
 
 **\[ Lambda 트리거 - SNS ]**
 
-![스크린샷 2025-07-23 오전 5.32.03.png](attachment:778e1305-1429-4679-81cd-458a9eb32944:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.32.03.png)
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+{% hint style="info" %}
+트리거 구성, sns 주제를 지정하고 **Add** 버튼을 클릭한다.
 
-트리거 구성, sns 주제를 지정하고 **Add**버튼을 클릭한다.
+
 
 * **Trigger configuration** : SNS
 * **SNS topic** : 앞서 생성한 SNS 주제 선택 \</aside>
+{% endhint %}
+
+
 
 **STEP 6) 추가된 트리거 확인**
 
-![스크린샷 2025-07-23 오전 5.33.46.png](attachment:d083f07f-85fb-4302-9748-c5fda6e84278:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.33.46.png)
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
+{% hint style="info" %}
 SNS가 정상적으로 트리거링 되었고 Discord에 알림을 보내기 위한 설정을 마쳤다.
+{% endhint %}
 
-\</aside>
+</details>
 
 #### **4. EventBridge 규칙 생성**
 

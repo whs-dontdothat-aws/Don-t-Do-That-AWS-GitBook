@@ -97,7 +97,7 @@
 
 **STEP 1) SNS 검색**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 알람을 전송 받을 주제 및 구독을 생성하기 위해 **SNS 서비스**로 이동한다.
 
@@ -105,13 +105,13 @@
 
 **STEP 2) 주제 생성**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 좌측 탭에서 Topic으로 이동 후 **Create** topic 버튼을 클릭한다.
 
 
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **Type** : Standard
 * **Name** : `sns-cloudtrail-alarm` \</aside>
@@ -120,7 +120,7 @@
 
 **STEP 3 ) 구독 생성**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 생성된 주제 확인 후 **Create subscription**을 누른다.
 
@@ -128,7 +128,7 @@
 
 **\[ 구독 생성 - 세부사항 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **Protocol** : email
 * **Endpoint** : 알람 받을 이메일 주소
@@ -137,13 +137,13 @@
 
 **STEP 4 ) 구독한 이메일 인증**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 설정한 이메일 주소로 SNS의 Subscription Confirmation 메일이 전송된다. 이메일을 열어 **Confirm subscription** 버튼을 클릭하여 인증해야 알림 수신이 정상적으로 설정된다.
 
 
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Confirm subscription**를 눌러 인증을 완료하면, SNS 구독이 정상적으로 등록된 것이다.
 
@@ -157,7 +157,7 @@
 
 **STEP 1) EventBridge 검색**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBridge 서비스**로 이동한다.
 
@@ -165,7 +165,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **STEP 2) EventBridge 생성**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **EventBridge** 서비스 화면 오른쪽 상단의 **EventBridge Rule**을 선택하고 **Create rule**버튼을 클릭한다.
 
@@ -173,7 +173,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 상세 규칙 설정 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 규칙 이름, 설명, EventBus 종류, 규칙 유형(이벤트 패턴 기반 or 스케줄 기반) 설정 후 **Next버튼**을 클릭한다.
 
@@ -185,7 +185,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 이벤트 패턴 작성 ]**
 
-<div align="left"><figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 탐지할 이벤트 조건을 설정을 설정하고 **Next**버튼을 클릭한다.
 
@@ -224,7 +224,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 대상 선택 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 이벤트가 감지되었을 때 실행할 대상 지정하고 **Next**버튼을 클릭한다.
 
@@ -237,7 +237,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 태그 구성 (선택) ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (12) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 태그 구성은 선택 사항이므로 **Next**버튼을 클릭한다.
 

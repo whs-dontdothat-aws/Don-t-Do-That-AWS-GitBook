@@ -78,7 +78,7 @@
 
 **STEP 1) CloudTrail 검색**
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 AWS 계정 내에서 발생하는 API 호출 및 활동 내역을 자동으로 기록하고 추적하기 위해 **CloudTrail서비스**로 이동한다. 리전에 이미 생성된 trail이 있을 경우, 추가 생성 없이 **2번 단계** 으로 넘어간다.
 
@@ -86,7 +86,7 @@ AWS 계정 내에서 발생하는 API 호출 및 활동 내역을 자동으로 �
 
 **STEP 2 ) CloudTrail 생성**
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Create trail 버튼을 클릭해 사용할 추적을 생성한다.
 
@@ -94,7 +94,7 @@ Create trail 버튼을 클릭해 사용할 추적을 생성한다.
 
 **\[ 추적 속성 선택 ]**
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
 
 CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 클릭한다.
 
@@ -108,7 +108,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 로그 이벤트 선택 ]**
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
 
 로그 이벤트, 이벤트 관리 옵션 선택 후 **Next**버튼을 클릭한다.
 
@@ -119,7 +119,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 검토 및 생성 ]**
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
 
 각 단계 검토 후 **Create trail** 버튼을 클릭하면 추적이 생성된다.
 
@@ -127,7 +127,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **STEP 3) 추적 생성 확인**
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
 
 대시보드에서 정상적으로 추적이 생성되었는지 확인한다.
 
@@ -141,7 +141,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 채널 만들기 ]**
 
-<div align="left"><figure><img src="../.gitbook/assets/image (6) (1).png" alt="" width="467"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt="" width="467"><figcaption></figcaption></figure></div>
 
 로그 그룹의 변경/삭제 이벤트 알림을 수신 할 채널을 만들어준다.
 
@@ -151,7 +151,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 채널 편집 ]**
 
-<div align="left"><figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 위와 같이 생성된 채널에서 **채널 편집**을 클릭한다.
 
@@ -159,13 +159,13 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 웹후크 연동 ]**
 
-<div align="left"><figure><img src="../.gitbook/assets/image (8) (1).png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (8) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 왼쪽 상단의 설정 목록에서 **연동 → 웹후크 만들기**를 클릭하여 웹후크 봇을 만들어 준다.
 
 
 
-<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -178,13 +178,13 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **STEP 2) Lambda 함수 생성**
 
-<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 알람을 발송할 함수를 만들기 위해 AWS 콘솔에서 **Lambda 서비스**로 이동한다.
 
 
 
-<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클릭한다.
 
@@ -192,7 +192,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 함수 생성 ]**
 
-<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 함수 이름, 런타임 및 아키텍처를 지정하고 **Next**버튼을 클릭한다.
 
