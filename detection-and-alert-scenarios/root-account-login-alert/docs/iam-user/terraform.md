@@ -5,6 +5,8 @@
 > ***
 >
 > 수동 설정은 실수 위험이 크고 반복이 어렵지만, Terraform을 사용하면 콘솔에서 구현한 시나리오를 코드로 재현할 수 있어 **버전 관리, 재사용, 자동화**에 유리하다.
+>
+>
 
 **참고**
 
@@ -331,7 +333,7 @@ def lambda_handler(event, context):
 
 <details>
 
-<summary>Terraform 실행</summary>
+<summary>코드 실행</summary>
 
 \[ Terraform 실행 코드 ]
 
@@ -417,6 +419,8 @@ Confirm subscription를 눌러 인증을 완료하면, SNS 구독이 정상적�
 
 
 \[ 테스트 진행 ]
+
+5. 테스트
 
 인증 후 위를 참고하여 테스트를 진행하면 된다.
 
