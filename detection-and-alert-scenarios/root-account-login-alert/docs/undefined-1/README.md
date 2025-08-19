@@ -64,7 +64,7 @@
 
 
 
-**\[ 콘솔 리소스명 ]**
+**콘솔 리소스명**&#x20;
 
 <table data-header-hidden><thead><tr><th width="203">리소스 종류</th><th width="250">리소스명 설정</th><th>목적</th></tr></thead><tbody><tr><td><strong>리소스 종류</strong></td><td><strong>리소스명 설정</strong></td><td><strong>목적</strong></td></tr><tr><td>CloudTrail Trail</td><td><strong><code>ct-trail-monitor</code></strong></td><td>AWS 계정 내 API 활동을 감시하고 로그를 S3로 저장</td></tr><tr><td>Discord 채널</td><td><strong><code>log-group-alarm</code></strong></td><td>SNS에 연동된 Lambda 함수를 통해 알림 메시지를 수신하고 확인할 수 있는 알림 채널</td></tr><tr><td>Lambda Function</td><td><strong><code>lambda-loggroup-alarm</code></strong></td><td>SNS 메시지를 파싱하여 Discord Webhook으로 이상 행위 알림 전송</td></tr><tr><td>SNS Topic</td><td><strong><code>sns-loggroup-alarm</code></strong></td><td>이벤트 발생 시 이메일 및 Lambda로 알림을 전송하는 주제</td></tr><tr><td>EventBridge Rule</td><td><strong><code>eventbridge-loggroup-change</code></strong></td><td>특정 CloudTrail 이벤트 발생 시 SNS로 이벤트 전송하는 트리거 역할</td></tr><tr><td>CloudWatch Log Group</td><td><strong><code>loggroup-test</code></strong></td><td>로그 그룹 삭제 및 변경 시 알림이 발생하는지 확인하기 위해 생성하는 테스트리소스</td></tr></tbody></table>
 
