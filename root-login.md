@@ -1,4 +1,4 @@
-# root-login
+# 루트 계정 로그인 알림
 
 ***
 
@@ -467,7 +467,8 @@ EventBridge 서비스 화면 오른쪽 상단의 EventBridge Rule을 선택하�
 
 <figure><img src=".gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
 
-설정한 이메일 주소로 SNS의 Subscription Confirmation 메일이 전송된다.\
+설정한 이메일 주소로 SNS의 Subscription Confirmation 메일이 전송된다.
+\
 이메일을 열어 **Confirm subscription** 버튼을 클릭해야 알림 수신이 정상적으로 설정된다.
 
 <figure><img src=".gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
