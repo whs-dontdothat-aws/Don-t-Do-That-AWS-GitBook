@@ -78,7 +78,7 @@
 
 **STEP 1) CloudTrail 검색**
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 AWS 계정 내에서 발생하는 API 호출 및 활동 내역을 자동으로 기록하고 추적하기 위해 **CloudTrail서비스**로 이동한다. 리전에 이미 생성된 trail이 있을 경우, 추가 생성 없이 **2번 단계** 으로 넘어간다.
 
@@ -86,7 +86,7 @@ AWS 계정 내에서 발생하는 API 호출 및 활동 내역을 자동으로 �
 
 **STEP 2 ) CloudTrail 생성**
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Create trail 버튼을 클릭해 사용할 추적을 생성한다.
 
@@ -94,7 +94,7 @@ Create trail 버튼을 클릭해 사용할 추적을 생성한다.
 
 **\[ 추적 속성 선택 ]**
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
 
 CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 클릭한다.
 
@@ -108,7 +108,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 로그 이벤트 선택 ]**
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
 
 로그 이벤트, 이벤트 관리 옵션 선택 후 **Next**버튼을 클릭한다.
 
@@ -119,7 +119,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 검토 및 생성 ]**
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>예시 사진</p></figcaption></figure>
 
 각 단계 검토 후 **Create trail** 버튼을 클릭하면 추적이 생성된다.
 

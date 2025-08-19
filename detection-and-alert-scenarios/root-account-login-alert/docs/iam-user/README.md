@@ -532,7 +532,7 @@ STEP 3) 생성된 규칙 확인
 
 
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 이벤트 테스트를 위해 IAM 콘솔로 이동한다.
 
@@ -540,15 +540,15 @@ STEP 3) 생성된 규칙 확인
 
 \[CreateUser이벤트 발생 ]
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 좌측 탭에서 Users를 선택 후 Create User 버튼을 클릭한다.
 
 
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 아래 사항 외에는 기본값 그대로 진행한 후 **Create User버튼**을 눌러 테스트 사용자를 생성한다.
 
@@ -558,7 +558,7 @@ STEP 3) 생성된 규칙 확인
 
 \[DeleteUser이벤트 발생 ]
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 앞서 만든 사용자를 체크한 후 Delete버튼을 클릭해 삭제한다.
 

@@ -161,54 +161,58 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 채널 만들기 ]**
 
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-
-</details>
-
-![스크린샷 2025-07-23 오전 5.03.54.png](attachment:fb7fd53b-71bc-424e-8236-f6834467d3dd:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.03.54.png)
-
-\<aside>
-
+{% hint style="info" %}
 이벤트에 관한 알림을 수신 할 채널을 만들어준다.
 
-* **채널 이름** : **`ebs-snapshot-alarm`** \</aside>
+
+
+* **채널 이름** : <mark style="color:$danger;">**`ebs-snapshot-alarm`**</mark>&#x20;
+{% endhint %}
+
+
 
 **\[ 채널 편집 ]**
 
-![스크린샷 2025-07-23 오전 5.06.13.png](attachment:14fb2214-fae3-4385-80f0-9ed613ad0ebd:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.06.13.png)
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
+{% hint style="info" %}
 위와 같이 생성된 채널에서 **채널 편집**을 클릭한다.
+{% endhint %}
 
-\</aside>
+
 
 **\[ 웹후크 연동 ]**
 
-![image.png](attachment:c477fac1-826d-4b23-be21-2409bcfc8bdb:image.png)
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
+{% hint style="info" %}
 왼쪽 상단의 설정 목록에서 **연동 → 웹후크 만들기**를 클릭하여 웹후크 봇을 만들어 준다.
+{% endhint %}
 
-\</aside>
+
 
 **\[ 웹후크 URL 복사 ]**
 
-![스크린샷 2025-07-23 오전 5.07.25.png](attachment:c1918a90-0fdb-4b28-8601-34706044a5f5:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.07.25.png)
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
+{% hint style="info" %}
 **웹후크 URL 복사** 버튼을 클릭해 Lambda에서 사용할 URL을 복사한다.
 
+
+
 * **이름** : WEBHOOK\_URL
-* **채널** : # (앞서 생성한 채널 이름 선택) \</aside>
+* **채널** : # (앞서 생성한 채널 이름 선택)
+{% endhint %}
+
+
 
 **STEP 2) Lambda 함수 생성**
 
-![스크린샷 2025-07-21 오후 9.50.49.png](attachment:2be4370f-a319-4008-b0e9-c885dfdeeaa0:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-21_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_9.50.49.png)
 
-\<aside>
+
+</details>
 
 알람을 발송할 함수를 만들기 위해 AWS 콘솔에서 **Lambda 서비스**로 이동한다.
 
