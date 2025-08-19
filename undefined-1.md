@@ -80,7 +80,7 @@ AWS 계정 내에서 발생하는 API 호출 및 활동 내역을 자동으로 �
 
 **STEP 2 ) CloudTrail 생성**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Create trail 버튼을 클릭해 사용할 추적을 생성한다.
 

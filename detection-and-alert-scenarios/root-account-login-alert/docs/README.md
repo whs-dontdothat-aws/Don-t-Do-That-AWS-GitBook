@@ -214,7 +214,7 @@ AWS Config > Rules > Add rules를 클릭한다.
 
 **STEP 1) EventBridge 검색**
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 AWS 서비스들이 발생시키는 이벤트를 감지하고, 조건에 따라 자동으로 후속 작업을 실행할 수 있도록 연결해주기 위해 AWS 콘솔에서 **EventBridge 서비스**로 이동한다.
 
@@ -222,7 +222,7 @@ AWS 서비스들이 발생시키는 이벤트를 감지하고, 조건에 따라 
 
 **STEP 2) EventBridge 생성**
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Create rule** 버튼을 클릭해서 새 EventBridge 규칙을 생성한다.
 
