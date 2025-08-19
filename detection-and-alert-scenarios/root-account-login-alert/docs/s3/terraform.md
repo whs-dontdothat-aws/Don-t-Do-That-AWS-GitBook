@@ -8,7 +8,7 @@
 
 **참고**
 
-실습 전 [IaC 실습 전 환경 구성](https://app.gitbook.com/o/Ovrk2sznEJVoEThBhvLL/s/OxBH8cyDzBTzXyUOUzPl/) 을 참고하여 환경 구성을 완료했다면 Terraform 코드를 실행하여 리소스를 자동으로 생성할 수 있다.
+실습 전 [IaC 실습 전 환경 구성](https://app.gitbook.com/s/OxBH8cyDzBTzXyUOUzPl/ "mention")을 참고하여 환경 구성을 완료했다면 Terraform 코드를 실행하여 리소스를 자동으로 생성할 수 있다.
 
 {% embed url="https://app.gitbook.com/o/Ovrk2sznEJVoEThBhvLL/s/OxBH8cyDzBTzXyUOUzPl/" %}
 
@@ -548,3 +548,4 @@ AWS에 **이미 존재하는 Role**을 Terraform state에 가져오기 위해서
 
 **\[ 전체 코드 압축 파일 ]**
 
+{% file src="../.gitbook/assets/terraform code.zip" %}
