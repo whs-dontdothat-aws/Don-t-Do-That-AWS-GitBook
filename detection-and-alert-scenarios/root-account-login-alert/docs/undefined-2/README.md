@@ -16,11 +16,11 @@
 
 [#undefined-5](./#undefined-5 "mention")
 
-[#undefined-5](../#undefined-5 "mention")
+[#undefined](aws-console.md#undefined "mention")
 
-[aws-console-gui.md](aws-console-gui.md "mention")
+[aws-console.md](aws-console.md "mention")
 
-[terraform-cli.md](terraform-cli.md "mention")
+[terraform.md](terraform.md "mention")
 
 ***
 
@@ -59,4 +59,4 @@
 
 #### **콘솔 변수 이름**
 
-<table data-header-hidden data-full-width="false"><thead><tr><th width="160.33331298828125"></th><th width="279"></th><th></th></tr></thead><tbody><tr><td><strong>리소스 종류</strong></td><td><strong>리소스명 설정</strong></td><td><strong>목적</strong></td></tr><tr><td>CloudTrail Trail</td><td><strong><code>ct-snapshot-monitor</code></strong></td><td>AWS 계정 내 API 활동을 감시하고 로그를 S3로 저장</td></tr><tr><td>SNS Topic</td><td><strong><code>sns-snapshot-alarm</code></strong></td><td>이벤트 발생 시 이메일 및 Lambda로 알림을 전송하는 주제</td></tr><tr><td>Lambda Function</td><td><strong><code>lambda-ebs-snapshot-alarm</code></strong></td><td>SNS 메시지를 파싱하여 Discord Webhook으로 이상 행위 알림 전송</td></tr><tr><td>EventBridge Rule</td><td><strong><code>eventbridge-ebs-detect-snapshot</code></strong></td><td>특정 EBS 이벤트 발생 시 SNS로 이벤트 전송하는 트리거 역할</td></tr><tr><td>EC2</td><td><strong><code>ec2-ebs-test</code></strong></td><td>EBS 스냅샷 생성 및 삭제 등 테스트용 볼륨을 생성하여 보안 탐지 시나리오 검증</td></tr><tr><td>Discord Channel</td><td><strong><code>ebs-snapshot-alarm</code></strong></td><td>CloudTrail 알림 메시지를 수신하고 확인할 수 있는 알림 채널</td></tr></tbody></table>
+<table data-header-hidden data-full-width="false"><thead><tr><th width="160.33331298828125"></th><th width="279"></th><th></th></tr></thead><tbody><tr><td><strong>리소스 종류</strong></td><td><strong>리소스명 설정</strong></td><td><strong>목적</strong></td></tr><tr><td>CloudTrail Trail</td><td><mark style="color:$danger;"><strong><code>ct-snapshot-monitor</code></strong></mark></td><td>AWS 계정 내 API 활동을 감시하고 로그를 S3로 저장</td></tr><tr><td>SNS Topic</td><td><mark style="color:$danger;"><strong><code>sns-snapshot-alarm</code></strong></mark></td><td>이벤트 발생 시 이메일 및 Lambda로 알림을 전송하는 주제</td></tr><tr><td>Lambda Function</td><td><mark style="color:$danger;"><strong><code>lambda-ebs-snapshot-alarm</code></strong></mark></td><td>SNS 메시지를 파싱하여 Discord Webhook으로 이상 행위 알림 전송</td></tr><tr><td>EventBridge Rule</td><td><mark style="color:$danger;"><strong><code>eventbridge-ebs-detect-snapshot</code></strong></mark></td><td>특정 EBS 이벤트 발생 시 SNS로 이벤트 전송하는 트리거 역할</td></tr><tr><td>EC2</td><td><mark style="color:$danger;"><strong><code>ec2-ebs-test</code></strong></mark></td><td>EBS 스냅샷 생성 및 삭제 등 테스트용 볼륨을 생성하여 보안 탐지 시나리오 검증</td></tr><tr><td>Discord Channel</td><td><mark style="color:$danger;"><strong><code>ebs-snapshot-alarm</code></strong></mark></td><td>CloudTrail 알림 메시지를 수신하고 확인할 수 있는 알림 채널</td></tr></tbody></table>
