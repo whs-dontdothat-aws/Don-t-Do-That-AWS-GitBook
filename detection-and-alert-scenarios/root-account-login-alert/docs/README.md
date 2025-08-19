@@ -521,57 +521,49 @@ EventBridge가 정상적으로 트리거링 되었고 Discord에 알림을 보�
 
 **STEP 1) S3 검색**
 
-![image.png](attachment:f1e10f88-4061-422d-8d40-d3485cf686c1:698faf0f-1b59-4343-a75f-392bdd8b0d08.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
 
 테스트용 Public 버킷을 생성하기 위해 **S3로 서비스로 이동**한다.
 
-\</aside>
+
 
 **STEP 2) S3 bucket 생성**
 
 \[ **S3 bucket 생성 ]**
 
-![image.png](attachment:fe6e9526-00fd-4ba0-9bc5-ee89f52fb275:image.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/image (1) (4).png" alt=""><figcaption></figcaption></figure>
 
 **S3** 서비스 화면 오른쪽 상단의 **Create a bucket**버튼을 클릭한다.
 
-\</aside>
+
 
 **\[ bucket 속성 선택 ]**
 
-![스크린샷 2025-07-17 153244.png](attachment:535d27a7-3f04-4be3-b83d-6747caa3f7ab:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-17_153244.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-17 153244.png" alt=""><figcaption></figcaption></figure>
 
-![스크린샷 2025-07-17 153148.png](attachment:5b2f9779-4b83-44a7-9715-75c5e6e2fcc9:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-17_153148.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-17 153148.png" alt=""><figcaption></figcaption></figure>
 
 * **Bucket name:** **`s3-public-bucket-whs`**
 * **Object Ownership:** ACLs enabled(recommended)
-* **Block Public Access settings for this bucket:** Block all public access 모두 체크 해제 (퍼블릭 액세스 차단 비활성화 한다.) \</aside>
+* **Block Public Access settings for this bucket:** Block all public access 모두 체크 해제 (퍼블릭 액세스 차단 비활성화 한다.)&#x20;
+
+
 
 **\[버킷 정책 편집]**
 
-![스크린샷 2025-07-17 153438.png](attachment:72ae41e7-e71a-48b3-b964-0872c45f2ef7:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-17_153438.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-17 153438.png" alt=""><figcaption></figcaption></figure>
 
-![스크린샷 2025-07-17 153513.png](attachment:4142a2e3-3ff9-4267-9e5e-4d49b9187e22:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-17_153513.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-17 153513.png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+**생성한 버킷 >  Permission > Bucket policy Edit** 클릭 후 Policy generator로 들어간다.
 
-생성한 버킷> Permission> Bucket policy Edit 클릭 후 Policy generator로 들어간다.
 
-\</aside>
 
 **\[버킷 정책에 PublicRead 권한 부여]**
 
-![스크린샷 2025-07-18 143948.png](attachment:6de8a00b-741a-4f4e-b113-1b2bd42eb96e:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_143948.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 143948.png" alt=""><figcaption></figcaption></figure>
 
-![스크린샷 2025-07-18 144019.png](attachment:e261dd92-2994-4dd2-8928-a51f5572a42b:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_144019.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 144019.png" alt=""><figcaption></figcaption></figure>
 
 * **Select Type of Policy :** S3 Bucket Policy
 * **Principal :** \*
@@ -580,67 +572,53 @@ EventBridge가 정상적으로 트리거링 되었고 Discord에 알림을 보�
 
     ARN은 버킷 정책기 생성 누르는 페이지에 복사하여 붙여놓기를 하면 된다. 그리고 bucket ARN 뒤에 /\* 부분을 입력하고 Add Statement를 입력한다.
 
-위의 내용을 다 채우고, Generate Policy를 하면 정책이 생성된다.
+위의 내용을 다 채우고, **Generate Policy**를 클릭하면 정책이 생성된다.
 
-\</aside>
 
-![스크린샷 2025-07-18 143821.png](attachment:ce7b6c03-6e26-4be6-8a63-dfe24472c8b3:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_143821.png)
 
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 143821.png" alt=""><figcaption></figcaption></figure>
 
 정책을 생성하면 위와 같이 생성되는 것을 볼 수 있다.
 
-\</aside>
-
-![스크린샷 2025-07-18 144328.png](attachment:989d6ed8-7177-49e7-8e38-f5db97878d38:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_144328.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 144328.png" alt=""><figcaption></figcaption></figure>
 
 생성된 정책을 복사하여 붙여 놓으면 Bucket Policy는 완료한 것이다.
 
-\</aside>
+
 
 **\[테스트 위한 S3 버킷 객체 생성]**
 
-![스크린샷 2025-07-18 143337.png](attachment:b7574078-5696-47d3-84ae-f1762fb0ebc0:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_143337.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 143337.png" alt=""><figcaption></figcaption></figure>
 
-![스크린샷 2025-07-18 145143.png](attachment:a93c1bce-c3f7-4e7f-84d9-fabf855e7d5b:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_145143.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 145143.png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+**생성한 버킷 > Objects > Upload** 선택하여
 
-생성한 버킷> Objects> Upload 선택하여
-
+{% hint style="info" %}
 [test\_v2 (1).html](attachment:38e7a4b1-f884-4fab-96e6-4f560a1dd849:test_v2.html)
+{% endhint %}
 
 해당 테스트 파일을 업로드한다.
 
-\</aside>
 
-![스크린샷 2025-07-18 145237.png](attachment:7b9159d2-ab31-4884-b246-ca6d704dc2ff:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_145237.png)
 
-![스크린샷 2025-07-18 145321.png](attachment:62d5dd37-1d19-4001-b93a-fcdb9b75235c:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_145321.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 145237.png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 145321.png" alt=""><figcaption></figcaption></figure>
 
-해당 테스트 파일> Permission> Edit을 클릭하여 ACL의 퍼블릭 액세스를 (Everyone-public access) 읽기(Read)로 변경한다.
+**해당 테스트 파일 > Permission > Edit**을 클릭하여 ACL의 퍼블릭 액세스를 (Everyone-public access) **읽기(Read)**&#xB85C; 변경한다.
 
-\</aside>
 
-![스크린샷 2025-07-18 145417.png](attachment:1867ba31-637c-4f84-8696-841261286569:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_145417.png)
 
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 145417.png" alt=""><figcaption></figcaption></figure>
 
-해당 url은 모든 사람(즉, 퍼블릭 액세스)로 접근하면 탐지가 된다.
+해당 url은 **모든 사람**(즉, 퍼블릭 액세스)로 접근하면 탐지가 된다.
 
-\</aside>
 
-![스크린샷 2025-07-18 145519.png](attachment:18f55b70-8b8f-4c79-a7a3-8a4bbf871dcf:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-18_145519.png)
 
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-18 145519.png" alt=""><figcaption></figcaption></figure>
 
-S3 버킷을 퍼블릭으로 생성하면, aws config에서 `s3-bucket-public-read-prohibited` 규칙이 미준수된 것을 확인할 수 있다.
-
-\</aside>
+S3 버킷을 **퍼블릭**으로 생성하면, aws config에서 `s3-bucket-public-read-prohibited` 규칙이 미준수된 것을 확인할 수 있다.
 
 </details>
 
