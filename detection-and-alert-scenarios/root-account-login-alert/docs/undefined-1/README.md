@@ -205,7 +205,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 생성된 함수 확인 ]**
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 생성된 Lambda 함수를 확인할 수 있다.
 
@@ -213,7 +213,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **STEP 3) 환경 변수 편집**
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 이후 Configuration → Environment variables로 들어가서 **Edit** 버튼을 클릭한다.
 
@@ -223,7 +223,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 환경 변수에 키와 값 추가 ]**
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Key, Value**를 \*\*\*\*다음과 같이 추가한 이후 **Save**버튼을 눌러 환경 변수를 추가해 준다.
 
@@ -237,7 +237,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **STEP 4) Lambda 코드 소스 편집**
 
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 Code탭에서 Lambda python 코드를 작성 후 Deploy버튼을 클릭하여 배포한다.
 
@@ -276,7 +276,7 @@ def lambda_handler(event, context):
 
 **STEP 1) SNS 검색**
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 알람을 전송 받을 주제 및 구독을 생성하기 위해 **SNS 서비스**로 이동한다.
 
@@ -284,13 +284,13 @@ def lambda_handler(event, context):
 
 STEP 2) 주제 생성
 
-<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
 좌측 탭에서 Topic으로 이동 후 **Create topic 버튼**을 클릭한다.
 
 
 
-<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **Type** : Standard(표준)
 * **Name** : **`sns-loggroup-alarm`**
@@ -299,7 +299,7 @@ STEP 2) 주제 생성
 
 **STEP 3) Email 구독 생성**
 
-<div align="left"><figure><img src="../.gitbook/assets/image (20).png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (20) (1).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 생성된 주제 확인 후 **Create subscription 버튼**을 클릭한다.
 
@@ -307,7 +307,7 @@ STEP 2) 주제 생성
 
 **\[ 구독 생성 - 세부사항 ]**
 
-<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (21) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **Protocol** : Email
 * **Endpoint** : 이메일 주소

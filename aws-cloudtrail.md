@@ -245,7 +245,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 검토 및 생성 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (13) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 설정 내용 최종 확인 후 **Create rule**버튼을 클릭한다.
 
@@ -255,7 +255,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **STEP 3) 생성된 규칙 확인**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (14) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 규칙이 정상적으로 생성되었는지 확인해준다.
 
@@ -271,7 +271,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 채널 만들기 ]**
 
-<div align="left"><figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (15) (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (15) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 이벤트에 관한 알림을 수신 할 채널을 만들어준다.
 
@@ -281,7 +281,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 채널 편집 ]**
 
-<div align="left"><figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 위와 같이 생성된 채널에서 **채널 편집**을 클릭한다.
 
@@ -289,7 +289,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 웹후크 연동 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 왼쪽 상단의 설정 목록에서 **연동 → 웹후크 만들기**를 클릭하여 웹후크 봇을 만들어 준다.
 
@@ -297,7 +297,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 **\[ 웹후크 URL 복사 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **웹후크 URL 복사** 버튼을 클릭해 Lambda에서 사용할 URL을 복사한다.
 
@@ -314,7 +314,7 @@ Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBri
 
 
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (19) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클릭한다.
 
@@ -322,7 +322,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 함수 생성 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (20) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 함수 이름, 런타임 및 아키텍처를 지정하고 **Create function**버튼을 클릭한다.
 
@@ -335,7 +335,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 생성된 함수 확인 ]**
 
-<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (21) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="detection-and-alert-scenarios/root-account-login-alert/docs/.gitbook/assets/image (21) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 정상적으로 Lambda함수가 생성되었는지 확인해준다.
 

@@ -161,7 +161,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 채널 만들기 ]**
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 이벤트에 관한 알림을 수신 할 채널을 만들어준다.
@@ -210,7 +210,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **STEP 2) Lambda 함수 생성**
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 알람을 발송할 함수를 만들기 위해 AWS 콘솔에서 **Lambda 서비스**로 이동한다.
@@ -220,7 +220,7 @@ CloudTrail 트레일(추적)의 기본 설정을 지정 후 **Next**버튼을 �
 
 **\[ 함수 생성 ]**
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클릭한다.
@@ -230,7 +230,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 함수 생성 - 세부 사항 ]**
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 함수 이름, 런타임 및 아키텍처를 지정하고 **Create function** 버튼을 클릭한다.
@@ -247,7 +247,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 생성한 함수 확인 ]**
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 정상적으로 Lambda함수가 생성되었는지 확인해준다.
@@ -257,7 +257,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **STEP 3) 환경 변수 편집**
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 이후 Configuration → Environment variables로 들어가서 **Edit** 버튼을 클릭한다.
@@ -267,7 +267,7 @@ Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클�
 
 **\[ 환경 변수 추가 ]**
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Edit environment variables로 이동하여 **Add environment variables** 버튼을 클릭한다.
@@ -277,7 +277,7 @@ Edit environment variables로 이동하여 **Add environment variables** 버튼�
 
 **\[ 환경 변수에 키와 값 추가 ]**
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **Key, Value**를 다음과 같이 추가한 이후 **Save** 버튼을 눌러 환경 변수를 추가 해준다.
@@ -292,7 +292,7 @@ Edit environment variables로 이동하여 **Add environment variables** 버튼�
 
 **STEP 4) Lambda 코드 소스 편집**
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Code탭에서 **Lambda python 코드**를 작성 후 **Deploy**버튼을 클릭하여 배포해 준다.
@@ -370,7 +370,7 @@ def lambda_handler(event, context):
 
 **STEP 5) lambda 트리거 추가**
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 생성한 Lambda함수의 다이어그램 왼쪽 하단의 **Add trigger** 버튼을 클릭한다.
@@ -380,7 +380,7 @@ def lambda_handler(event, context):
 
 **\[ Lambda 트리거 - SNS ]**
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 트리거 구성, sns 주제를 지정하고 **Add** 버튼을 클릭한다.
@@ -395,7 +395,7 @@ def lambda_handler(event, context):
 
 **STEP 6) 추가된 트리거 확인**
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 SNS가 정상적으로 트리거링 되었고 Discord에 알림을 보내기 위한 설정을 마쳤다.
@@ -403,56 +403,61 @@ SNS가 정상적으로 트리거링 되었고 Discord에 알림을 보내기 위
 
 </details>
 
-#### **4. EventBridge 규칙 생성**
+<details>
+
+<summary>4. EventBridge 규칙 생성</summary>
 
 **STEP 1) EventBridge 검색**
 
-![스크린샷 2025-07-22 오전 1.14.15.png](attachment:1fc38a91-71ec-4057-8ecc-1122932a677a:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_1.14.15.png)
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+{% hint style="info" %}
+Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBridge 서비스**로 이동한다.
+{% endhint %}
 
-\*\*\*\*Lambda 함수를 주기적으로 실행하기 위해 AWS 콘솔에서 **EventBridge 서비스**로 이동한다.
 
-\</aside>
 
 **STEP 2) EventBridge 생성**
 
-![image.png](attachment:c9822578-a0f8-492e-9e34-25ececdaf47d:image.png)
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
+{% hint style="info" %}
 **Create rule** 버튼을 클릭해서 새 EventBridge 규칙을 생성한다.
+{% endhint %}
 
-\</aside>
+
 
 **\[ 규칙 세부 정보 정의 ]**
 
-![스크린샷 2025-07-23 오전 5.39.23.png](attachment:2e2a0e48-0948-4dbc-81a0-3252337d6d68:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.39.23.png)
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
-* **Name** : **`eventbridge-ebs-detect-snapshot`**
+{% hint style="info" %}
+* **Name** : <mark style="color:$danger;">**`eventbridge-ebs-detect-snapshot`**</mark>
 * **Description** : (옵션)
 * **Event bus :** default
 * **Rule type** : Rule with an event pattern \</aside>
+{% endhint %}
+
+
 
 **\[** **이벤트 패턴 작성 ]**
 
-![스크린샷 2025-07-23 오전 5.42.54.png](attachment:7ed19555-676c-4a8c-9e10-53b5588bc4f6:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.42.54.png)
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+{% hint style="info" %}
+탐지할 이벤트 조건을 설정을 설정하고 **Next** 버튼을 클릭한다.
 
-탐지할 이벤트 조건을 설정을 설정하고 **Next**버튼을 클릭한다.
 
-**Events :** Other
 
-**Event pattern** : Custom pattern (JSON editor)
+* **Events :** Other
+* **Event pattern** : Custom pattern (JSON editor)
+{% endhint %}
 
-| 이벤트 이름                    | 설명                   |
-| ------------------------- | -------------------- |
-| `CreateSnapshot`          | EBS 볼륨 스냅샷 생성 API    |
-| `DeleteSnapshot`          | 기존 스냅샷 삭제 API        |
-| `ModifySnapshotAttribute` | EBS 스냅샷 공유 설정 변경 API |
+| 이벤트 이름                                                        | 설명                   |
+| ------------------------------------------------------------- | -------------------- |
+| <mark style="color:$danger;">`CreateSnapshot`</mark>          | EBS 볼륨 스냅샷 생성 API    |
+| <mark style="color:$danger;">`DeleteSnapshot`</mark>          | 기존 스냅샷 삭제 API        |
+| <mark style="color:$danger;">`ModifySnapshotAttribute`</mark> | EBS 스냅샷 공유 설정 변경 API |
 
 ```json
 {
@@ -469,63 +474,81 @@ SNS가 정상적으로 트리거링 되었고 Discord에 알림을 보내기 위
 }
 ```
 
-\</aside>
+
 
 **\[ 대상 선택 - SNS topic ]**
 
-![스크린샷 2025-07-23 오전 5.48.50.png](attachment:a6c46a39-156e-4ec3-b8b1-0696b0ad8ff4:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.48.50.png)
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+{% hint style="info" %}
+SNS 주제 선택 후 lambda 함수를 대상으로 추가하기 위해 **Add another target**을 클릭한다.
+
+
 
 * **Target types :** AWS service
 * **Select a target :** SNS topic
 * **Target location :** Target in this account
 * **Topic :** 미리 만들어 둔 sns topic 선택
+{% endhint %}
 
-SNS 주제 선택 후 lambda 함수를 대상으로 추가하기 위해 **Add another target**을 클릭한다.
 
-\</aside>
 
 **\[ 대상 선택 - Lambda function ]**
 
-![스크린샷 2025-07-23 오전 5.51.35.png](attachment:39102862-6687-4091-94fd-26f27fc124b5:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.51.35.png)
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+{% hint style="info" %}
+이벤트가 감지되었을 때 실행할 대상들을 지정하고 **Next**버튼을 클릭한다.
+
+
 
 * **Target types :** AWS service
 * **Select a target :** Lambda function
 * **Target location :** Target in this account
 * **Fuction :** 미리 만들어 둔 lambda function 선택
+{% endhint %}
 
-이벤트가 감지되었을 때 실행할 대상들을 지정하고 **Next**버튼을 클릭한다.
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-\</aside>
-
-![스크린샷 2025-07-22 오전 1.59.01.png](attachment:9869130e-41d1-4edc-b4f5-a0f2beb4ff0f:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-22_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_1.59.01.png)
-
-\<aside>
-
+{% hint style="info" %}
 태그 구성은 선택 사항이므로 **Next**버튼을 클릭한다.
+{% endhint %}
 
-\</aside>
+
 
 **\[** **검토** **및 생성 ]**
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+설정 내용 최종 확인 후 **Create rule** 버튼을 클릭한다.
+
+
+
+* status - **enabled** 확인
+{% endhint %}
+
+
+
+**STEP 3)** **생성된 규칙 확인**
+
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+규칙이 정상적으로 생성되었는지 확인해준다.
+{% endhint %}
+
+</details>
 
 ![스크린샷 2025-07-23 오전 5.54.14.png](attachment:8078676d-0512-47e1-afd6-b34b0744ac2c:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.54.14.png)
 
 \<aside>
 
-설정 내용 최종 확인 후 **Create rule**버튼을 클릭한다.
-
-* status - **enabled** 확인 \</aside>
-
-**STEP 3)** **생성된 규칙 확인**
+*
 
 ![스크린샷 2025-07-23 오전 5.57.36.png](attachment:8bdf2863-022d-4b0d-95ed-785a98d981c5:%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-07-23_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_5.57.36.png)
 
 \<aside>
-
-규칙이 정상적으로 생성되었는지 확인해준다.
 
 \</aside>
 
