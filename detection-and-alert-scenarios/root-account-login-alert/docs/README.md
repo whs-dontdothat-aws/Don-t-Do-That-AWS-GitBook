@@ -338,132 +338,109 @@ AWS 서비스들이 발생시키는 이벤트를 감지하고, 조건에 따라 
 
 **\[ 채널 만들기 ]**
 
-![스크린샷 2025-07-22 130818.png](attachment:c0c50b9d-51a3-4161-b679-5af8dd3cd4a6:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-22_130818.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-22 130818.png" alt="" width="304"><figcaption></figcaption></figure>
 
 이벤트에 관한 알림을 수신 할 채널을 만들어준다.
 
-* **채널 이름** : **`s3-public-alarm`** \</aside>
+* **채널 이름** : **`s3-public-alarm`**&#x20;
+
+
 
 **\[ 채널 편집 ]**
 
-![스크린샷 2025-07-22 130959.png](attachment:2e5a039f-b5ae-43a4-94ee-ba2542c2540f:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-22_130959.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-22 130959.png" alt="" width="290"><figcaption></figcaption></figure>
 
 위와 같이 생성된 채널에서 **채널 편집**을 클릭한다.
 
-\</aside>
+
 
 **\[ 웹후크 연동 ]**
 
-![image.png](attachment:c477fac1-826d-4b23-be21-2409bcfc8bdb:image.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
 
 왼쪽 상단의 설정 목록에서 **연동 → 웹후크 만들기**를 클릭하여 웹후크 봇을 만들어 준다.
 
-\</aside>
+
 
 **\[ 웹후크 URL 복사 ]**
 
-![스크린샷 2025-07-22 131248.png](attachment:0df99a4d-8bcf-4182-bfc3-7f9a55edfb85:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-22_131248.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-22 131248.png" alt=""><figcaption></figcaption></figure>
 
 **웹후크 URL 복사** 버튼을 클릭해 Lambda에서 사용할 URL을 복사한다.
 
 * **이름** : WEBHOOK\_URL
-* **채널** : #s3-public-alarm (앞서 생성한 채널 이름 선택) \</aside>
+* **채널** : #s3-public-alarm (앞서 생성한 채널 이름 선택)&#x20;
+
+
 
 **STEP 2) Lambda 함수 생성**
 
-![image.png](attachment:24c1632f-2db8-4259-aba8-b6e9f60a5574:image.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/image (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 알람을 발송할 함수를 만들기 위해 AWS 콘솔에서 **Lambda서비스**로 이동한다.
 
-\</aside>
-
-![image.png](attachment:d28e299b-a80b-4c16-9e60-f6810724701f:image.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
 
 Lambda 서비스 화면 오른쪽 상단의 **Create a function** 버튼을 클릭한다.
 
-\</aside>
+
 
 **\[ 함수 생성 ]**
 
-![스크린샷 2025-07-16 204403.png](attachment:ac088ab4-d6ca-4b9e-991a-8db4c7ae6ca2:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_204403.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 204403.png" alt=""><figcaption></figcaption></figure>
 
 함수 이름, 런타임 및 아키텍처를 지정하고 **Create function** 버튼을 클릭한다.
 
 * **Author from scratch** 선택
 * **Function name** : **`lambda-config-function`**
 * **Runtime** : Python 3.13
-* **Architecture** : x86\_64 \</aside>
+* **Architecture** : x86\_64&#x20;
+
+
 
 **\[ 생성된 함수 확인 ]**
 
-![스크린샷 2025-07-16 204505.png](attachment:d5540437-9236-4d39-8de7-21c7b0c9dd7b:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_204505.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 204505.png" alt=""><figcaption></figcaption></figure>
 
 정상적으로 Lambda함수가 생성되었는지 확인해준다.
 
-\</aside>
+
 
 **STEP 3) 환경 변수 편집**
 
-![스크린샷 2025-07-16 204614.png](attachment:657f5d73-f02d-4230-a1e9-05f241847f24:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_204614.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 204614.png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
+**Configuration → Environment variables**로 들어가서 **Edit** 버튼을 클릭한다.
 
-이후 Configuration→ Environment variables로 들어가서 **Edit** 버튼을 클릭한다.
 
-\</aside>
 
 **\[ 환경 변수 추가 ]**
 
-![image.png](attachment:efc2a473-f143-4377-8257-7298a5136e3a:image.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 
 Edit environment variables로 이동하여 **Add environment variables** 버튼을 클릭한다.
 
-\</aside>
+
 
 **\[ 환경 변수에 키와 값 추가 ]**
 
-![스크린샷 2025-07-16 204746.png](attachment:a00192c3-8e9c-4239-8c38-de461b455050:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_204746.png)
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 204746.png" alt=""><figcaption></figcaption></figure>
 
-\<aside>
-
-**Key, Value**를 \*\*\*\*다음과 같이 추가한 이후 **Save**버튼을 눌러 환경 변수를 추가해 준다.
+**Key, Value**를 다음과 같이 추가한 이후 **Save**버튼을 눌러 환경 변수를 추가해 준다.
 
 * **Key, Value는 표를 참고**
 
-| Key                   | **용도/설명**            | Value                                                                                           |
-| --------------------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| DISCORD\_WEBHOOK\_URL | 디스코드 알림용 Webhook URL | [https://discord.com/api/webhooks/\~\~\~](https://discord.com/api/webhooks/~~~) (알림 받을 웹후크 url) |
-| \</aside>             |                      |                                                                                                 |
+| Key                   | **용도/설명**            | Value                                                                                                              |
+| --------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| DISCORD\_WEBHOOK\_URL | 디스코드 알림용 Webhook URL | <p><a href="https://discord.com/api/webhooks/~~~">https://discord.com/api/webhooks/~~~</a> <br>(알림 받을 웹후크 url)</p> |
 
 
 
 **STEP 4) Lambda 코드 소스 편집**
 
-![스크린샷 2025-07-16 205203.png](attachment:2192b1ca-5ba4-4f21-9261-122a2ed2eddc:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_205203.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 205203.png" alt=""><figcaption></figcaption></figure>
 
 Code탭에서 **Lambda python 코드**를 작성 후 **Deploy**버튼을 클릭하여 배포해 준다.
-
-\</aside>
 
 ```python
 import json
@@ -506,39 +483,33 @@ def lambda_handler(event, context):
 
 ```
 
+
+
 **STEP 5) lambda 트리거 추가**
 
-![스크린샷 2025-07-16 205445.png](attachment:31843692-502d-4277-bc86-3ae4727ab17c:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_205445.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 205445.png" alt=""><figcaption></figcaption></figure>
 
 생성한 Lambda함수의 다이어그램 왼쪽 하단의 **Add trigger**버튼을 클릭한다.
 
-\</aside>
+
 
 **\[ Lambda 트리거 - EventBridge ]**
 
-![스크린샷 2025-07-16 212211.png](attachment:39acfb34-a862-4635-8f50-67ce4b2c3771:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_212211.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 212211.png" alt=""><figcaption></figcaption></figure>
 
 트리거 구성, EventBridge를 지정하고 **Add**버튼을 클릭한다.
 
 * **Trigger configuration:** EventBridge
 * **Rule:** Existing rules
-* **Existing rules:** 생성한 eventbridge rule 선택 \</aside>
+* **Existing rules:** 생성한 eventbridge rule 선택&#x20;
+
+
 
 **\[ 추가된 트리거 확인 ]**
 
-![스크린샷 2025-07-16 212312.png](attachment:6eeb14f8-6dc6-440d-8ec9-f3a71b97622e:%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-07-16_212312.png)
-
-\<aside>
+<figure><img src=".gitbook/assets/스크린샷 2025-07-16 212312.png" alt=""><figcaption></figcaption></figure>
 
 EventBridge가 정상적으로 트리거링 되었고 Discord에 알림을 보내기 위한 설정을 마쳤다.
-
-\</aside>
-
-
 
 </details>
 
