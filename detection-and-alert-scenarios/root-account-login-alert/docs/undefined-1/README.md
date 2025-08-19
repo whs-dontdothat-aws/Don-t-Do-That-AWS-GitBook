@@ -630,17 +630,49 @@ aws logs delete-resource-policy --policy-name test-policy
 
 <figure><img src="../.gitbook/assets/image (78).png" alt=""><figcaption></figcaption></figure>
 
+<div align="left"><figure><img src="../.gitbook/assets/image (79).png" alt=""><figcaption></figcaption></figure></div>
 
 
 
+2. **`PutRetentionPolicy`**
+
+<figure><img src="../.gitbook/assets/image (80).png" alt=""><figcaption></figcaption></figure>
+
+<div align="left"><figure><img src="../.gitbook/assets/image (81).png" alt=""><figcaption></figcaption></figure></div>
 
 
 
+3. **`PutSubscriptionFilter`**
+
+<figure><img src="../.gitbook/assets/image (82).png" alt=""><figcaption></figcaption></figure>
+
+<div align="left"><figure><img src="../.gitbook/assets/image (83).png" alt=""><figcaption></figcaption></figure></div>
 
 
 
+4. **`DeleteSubscriptionFilter`**
+
+<figure><img src="../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure>
+
+<div align="left"><figure><img src="../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure></div>
 
 
+
+5. **`PutResourcePolicy`**
+
+<figure><img src="../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
+
+<div align="left"><figure><img src="../.gitbook/assets/image (87).png" alt=""><figcaption></figcaption></figure></div>
+
+이때 알림을 확인해 보면 LogGroup에 N/A로 표시되는 것을 알 수 있는데 이는 CLI 명령에서 다수의 로그 그룹을 대상으로 지정하여 다음과 같이 표시되는 것이다.
+
+
+
+6. **`DeleteResourcePolicy`**
+
+<figure><img src="../.gitbook/assets/image (88).png" alt=""><figcaption></figcaption></figure>
+
+<div align="left"><figure><img src="../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure></div>
 
 </details>
 

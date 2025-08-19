@@ -20,11 +20,11 @@
 
 ```hcl
 Terraform-code/
-├── main.tf                # 모든 주요 Terraform 리소스 정의 (CloudTrail, SNS, EventBridge, Lambda, IAM 포함)
+├── main.tf                # 모든 주요 Terraform 리소스 정의 
 ├── variables.tf           # 입력 변수 정의 (Email, Discord Webhook 등)
-├── terraform.tfvars       # 민감 데이터 정의 (이메일 주소, Webhook URL 등)
+├── terraform.tfvars       # 민감 데이터 정의 (Email, Webhook URL 등)
 ├── lambda.zip             # 디스코드 알림을 전송하는 패키지된 Lambda 코드
-│   └── lambda_function.py # Lambda 함수 원본 코드
+│   └── lambda_function.py # Lambda 함수 원본 코드 
 
 ```
 
@@ -32,27 +32,213 @@ Terraform-code/
 
 **\[ Terraform 구현 코드 ]**
 
-*   리소스명
-
-    | **리소스 종류**       | **Terraform 리소스명**                                   | **목적/설명**                     |
-    | ---------------- | ---------------------------------------------------- | ----------------------------- |
-    | S3 Bucket        | s3-cloudtrail-monitor                                | CloudTrail 로그 저장 버킷           |
-    | S3 Bucket Policy | aws\_s3\_bucket\_policy.cloudtrail\_policy           | CloudTrail이 S3에 로그 저장 가능하게 허용 |
-    | CloudTrail Trail | ct-trail-monitor                                     | AWS API 활동 감시 및 로그 저장         |
-    | SNS Topic        | sns-cloudtrail-alarm                                 | 이메일 및 Lambda로 알림 전송하는 SNS 주제  |
-    | SNS 이메일 구독       | aws\_sns\_topic\_subscription.email\_sub             | 알림 이메일 구독                     |
-    | EventBridge Rule | eventbridge-ct-detect (aws\_cloudwatch\_event\_rule) | CloudTrail 이벤트 감지용 규칙         |
-    | Lambda 함수        | lambda-ct-detect-alarm                               | SNS 이벤트를 디스코드 알림으로 전송         |
-    | Lambda 환경 변수     | DISCORD\_WEBHOOK\_URL                                | 디스코드 웹훅 URL 저장                |
-    | Discord 채널       | cloudtrail\_detect\_alarm                            | 디스코드 알림 수신 채널                 |
-
-
-
 <details>
 
 <summary>main.tf</summary>
 
 ```hcl
+#---------------------------------------------------------------------------
+# 1. PROVIDER ─ AWS 리전 설정 (서울)
+#--------------------------------------------------------------------------
+provider "aws" {
+  region = "ap-northeast-2" # 서울 리전 사용
+}
+
+#---------------------------------------------------------------------------
+# 2. CloudTrail 설정(이미 리전에 추적 존재한다면 이 부분 생략)
+#---------------------------------------------------------------------------
+
+# 현재 AWS 계정 정보 조회 (account_id 등 활용 가능)
+data "aws_caller_identity" "current" {}
+
+# CloudTrail 로그를 저장할 S3 버킷 생성
+resource "aws_s3_bucket" "trail_bucket" {
+  bucket = "log-group-trail-bucket"
+  force_destroy = true # 버킷 비워진 후 삭제 허용
+}
+
+# 생성한 S3 버킷에 대한 퍼블릭 액세스 차단
+resource "aws_s3_bucket_public_access_block" "trail_bucket_block" {
+  bucket                  = aws_s3_bucket.trail_bucket.id
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
+# CloudTrail 서비스가 로그 기록을 위한 S3 버킷에 접근 허용
+resource "aws_s3_bucket_policy" "trail_bucket_policy" {
+  bucket = aws_s3_bucket.trail_bucket.id
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Sid    = "AWSCloudTrailAclCheck",
+        Effect = "Allow",
+        Principal = {
+          Service = "cloudtrail.amazonaws.com"
+        },
+        Action   = "s3:GetBucketAcl",
+        Resource = "arn:aws:s3:::${aws_s3_bucket.trail_bucket.id}"
+      },
+      {
+        Sid    = "AWSCloudTrailWrite",
+        Effect = "Allow",
+        Principal = {
+          Service = "cloudtrail.amazonaws.com"
+        },
+        Action   = "s3:PutObject",
+        Resource = "arn:aws:s3:::${aws_s3_bucket.trail_bucket.id}/AWSLogs/${data.aws_caller_identity.current.account_id}/*",
+        Condition = {
+          StringEquals = {
+            "s3:x-amz-acl" = "bucket-owner-full-control"
+          }
+        }
+      }
+    ]
+  })
+}
+
+# CloudTrail 트레일 생성 (모든 리전에서 이벤트 수집)
+resource "aws_cloudtrail" "log_group_trail" {
+  name                          = "log-group-monitor"
+  s3_bucket_name                = aws_s3_bucket.trail_bucket.id
+  include_global_service_events = true # 글로벌 서비스 이벤트 포함
+  is_multi_region_trail         = true # 다중 리전 이벤트 포함
+  enable_logging                = true # 로그 수집 활성화
+
+  depends_on = [
+    aws_s3_bucket_policy.trail_bucket_policy
+  ]
+}
+
+#---------------------------------------------------------------------------
+# 3. Lambda 설정
+#---------------------------------------------------------------------------
+
+# Lambda 실행을 위한 IAM 역할 생성
+resource "aws_iam_role" "lambda_exec_role" {
+  name = "log_group_alert_lambda_role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [{
+      Effect = "Allow",
+      Action = "sts:AssumeRole",
+      Principal = {
+        Service = "lambda.amazonaws.com"
+      }
+    }]
+  })
+}
+
+
+# Lambda Role 에 AWSLambdaBasicExecutionRole 정책 연결 (CloudWatch 로그 기록 가능)
+resource "aws_iam_role_policy_attachment" "lambda_basic" {
+  role       = aws_iam_role.lambda_exec_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+}
+
+
+# Discord Webhook으로 알림을 보내는 Lambda 함수 생성
+resource "aws_lambda_function" "discord_alert" {
+  filename         = "lambda.zip" # 패키징된 코드 zip 파일
+  function_name    = "log_group_alert"
+  role             = aws_iam_role.lambda_exec_role.arn
+  handler          = "lambda_function.lambda_handler" # Python 핸들러 경로
+  runtime          = "python3.12"
+  source_code_hash = filebase64sha256("lambda.zip") # 코드 변경 감지용
+
+  environment {
+    variables = {
+      HOOK_URL = var.discord_webhook_url # Discord Webhook URL 환경변수
+    }
+  }
+}
+
+#---------------------------------------------------------------------------
+# 4. SNS Topic 및 Email, Lambda 구독 설정
+#---------------------------------------------------------------------------
+
+# SNS 생성
+resource "aws_sns_topic" "log_group_topic" {
+  name = "log_group_event"
+}
+
+# 이메일 구독 생성
+resource "aws_sns_topic_subscription" "email_sub" {
+  topic_arn = aws_sns_topic.log_group_topic.arn
+  protocol  = "email"
+  endpoint  = var.notification_email
+}
+
+# Lambda 구독 생성
+resource "aws_sns_topic_subscription" "lambda_sub" {
+  topic_arn = aws_sns_topic.log_group_topic.arn
+  protocol  = "lambda"
+  endpoint  = aws_lambda_function.discord_alert.arn
+}
+
+# SNS가 Lambda 호출할 수 있도록 권한 부여
+resource "aws_lambda_permission" "allow_sns_invoke" {
+  statement_id  = "AllowSNSInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.discord_alert.function_name
+  principal     = "sns.amazonaws.com"
+  source_arn    = aws_sns_topic.log_group_topic.arn
+}
+
+#---------------------------------------------------------------------------
+# 5. EventBridge 설정
+#---------------------------------------------------------------------------
+
+# EventBridge 규칙 생성 : IAM User 생성, 삭제 탐지
+resource "aws_sns_topic_policy" "allow_eventbridge_publish" {
+  arn = aws_sns_topic.log_group_topic.arn
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [{
+      Sid       = "AllowEventBridgePublish",
+      Effect    = "Allow",
+      Principal = { Service = "events.amazonaws.com" },
+      Action    = "sns:Publish",
+      Resource  = aws_sns_topic.log_group_topic.arn
+    }]
+  })
+}
+
+# EventBridge 규칙의 타겟으로 SNS 주 연결
+resource "aws_cloudwatch_event_rule" "log_group_change_rule" {
+  name        = "detect-log-group-change"
+  description = "Detect CloudWatch LogGroup deletion or configuration changes"
+
+  event_pattern = jsonencode({
+    "source" : ["aws.logs"], # 로그 서비스에서 발생한 이벤트
+    "detail-type" : ["AWS API Call via CloudTrail"], # API 호출 이벤트
+    "detail" : {
+      "eventSource" : ["logs.amazonaws.com"], # CloudWatch Logs API 호출
+      "eventName" : [ # 감지할 API 이벤트 목록
+        "DeleteLogGroup",           # 로그 그룹 삭제
+        "PutRetentionPolicy",       # 보존 정책 변경
+        "DeleteSubscriptionFilter", # Subscription 필터 삭제
+        "PutSubscriptionFilter",    # Subscription 필터 추가/변경
+        "DeleteResourcePolicy",     # 리소스 정책 삭제
+        "PutResourcePolicy"         # 리소스 정책 추가/변경
+      ]
+    }
+  })
+}
+
+
+# EventBridge 규칙의 타겟으로 SNS 주 연결
+resource "aws_cloudwatch_event_target" "send_to_sns" {
+  rule      = aws_cloudwatch_event_rule.log_group_change_rule.name
+  target_id = "snsTarget"
+  arn       = aws_sns_topic.log_group_topic.arn
+}
+
 ```
 
 
@@ -64,6 +250,20 @@ Terraform-code/
 <summary>variables.tf</summary>
 
 ```hcl
+# 해당 파일에서는 변수를 여기다가 모두 선언
+# terraform 실행 시 terraform.tfvars에 선언된 값을 바탕으로 값이 들어감
+
+# Discord Webhook 주소를 입력받기 위한 변수
+variable "discord_webhook_url" {
+  description = "Discord webhook URL"
+  type        = string
+}
+
+# 이메일 수신자를 입력받기 위한 변수
+variable "notification_email" {
+  description = "Email address to receive alerts"
+  type        = string
+}
 ```
 
 
@@ -75,6 +275,13 @@ Terraform-code/
 <summary>terraform.tfvars</summary>
 
 ```hcl
+# 알림을 받을 디스코드 Webhook URL로 설정
+# 해당 URL을 통해 Lambda 함수가 알림을 디스코드 채널로 전송
+discord_webhook_url = "discord web hook url 작성"
+
+# 알림을 받을 이메일 주소로 설정
+# 보안 이벤트가 발생 시 SNS를 통해 해당 이메일로 알람 전송
+notification_email  = "이메일 주소"
 ```
 
 </details>
@@ -90,6 +297,28 @@ zip lambda.zip lambda_function.py
 ```
 
 ```python
+import os, json, urllib3
+
+http = urllib3.PoolManager()
+WEBHOOK = os.environ["HOOK_URL"]
+
+def lambda_handler(event, context):
+    for rec in event["Records"]:
+        msg = json.loads(rec["Sns"]["Message"])
+        detail = msg.get("detail", {})
+
+        content = (
+            "CloudWatch Logs 변경 탐지\n"
+            f"Event: {detail.get('eventName')}\n"
+            f"LogGroup: {detail.get('requestParameters', {}).get('logGroupName', 'N/A')}\n"
+            f"User: {detail.get('userIdentity', {}).get('arn', 'Unknown')}\n"
+            f"Time: {msg.get('time')}"
+        )
+        http.request(
+            "POST", WEBHOOK,
+            body=json.dumps({"content": content}).encode(),
+            headers={"Content-Type": "application/json"}
+        )
 ```
 
 
@@ -188,12 +417,6 @@ terraform apply 이후, 설정한 이메일 주소로 SNS의 Subscription Confir
 
 
 
-[5. 테스트](https://www.notion.so/5-1feb5a2aa9af80e49d4fc2a03a45f6da?pvs=21)
-
-인증 후 위를 참고하여 테스트를 진행하면 된다.
-
-
-
 **\[ destroy ]**
 
 ```bash
@@ -216,3 +439,4 @@ Destroy complete! Resources: 0 destroyed.
 
 **\[ 전체 코드 압축 파일 ]**
 
+{% file src="../.gitbook/assets/Terraform-code.zip" %}
